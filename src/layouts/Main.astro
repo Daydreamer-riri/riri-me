@@ -1,5 +1,4 @@
 ---
-import Layout from '@layouts/layout.astro'
 import Default from '@layouts/default.astro'
 
 export interface Props {
@@ -10,12 +9,10 @@ export interface Props {
 const { pageTitle, pageDesc } = Astro.props
 ---
 
-<Layout>
-  <Default>
-    <div class='prose m-auto'>
-      <h1>{pageTitle}</h1>
-      <!-- <p>{pageDesc}</p> -->
-      <slot />
-    </div>
-  </Default>
-</Layout>
+<Default>
+  <div class='prose m-auto'>
+    <h1>{pageTitle}</h1>
+    <!-- <p>{pageDesc}</p> -->
+    <slot />
+  </div>
+</Default>

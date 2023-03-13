@@ -11,12 +11,10 @@ import NavBar from '@components/NavBar.astro'
 // const { pageTitle, pageDesc } = Astro.props
 ---
 
-<div>
-  <NavBar />
-  <main px-7 py-10>
-    <slot />
-  </main>
-  <Footer className='max-w-content m-auto' />
-</div>
+<NavBar />
+<main px-7 py-10>
+  <slot />
+</main>
+<Footer className='max-w-content m-auto' />
 
 <style></style>
