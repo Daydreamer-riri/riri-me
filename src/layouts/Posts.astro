@@ -1,7 +1,72 @@
 ---
-import Giscus from '@components/Giscus'
+import dayjs from 'dayjs'
+import { title } from '@/meta'
+import type { CollectionEntry } from 'astro:content'
+import Layout from './layout.astro'
+import Main from './Main.astro'
+import { formatDate, getReadingTime, getYearToPostMap } from '@utils/posts'
+import slugify from '@utils/slugify'
+
+export interface Props {
+  posts: CollectionEntry<'blog'>[]
+}
+
+const { posts } = Astro.props
+const yearToPostMap = getYearToPostMap(posts)
 ---
 
-<div>
-  <div min-h='22rem'></div>
-</div>
+<Layout title={`posts | ${title}`}>
+  <Main pageTitle='Blog'>
+    <ul>
+      {
+        !posts.length ? (
+          <div text-center op-80>
+            nothing here yet
+          </div>
+        ) : null
+      }
+      {
+        Object.keys(yearToPostMap)
+          .reverse()
+          .map(year => (
+            <Fragment>
+              <div class='relative h-20 pointer-events-none'>
+                <span
+                  class='text-8em op-10 absolute left--3rem top--2rem font-bold'
+                  style='line-height: 1.75;'
+                >
+                  {year}
+                </span>
+              </div>
+              {yearToPostMap[year].map(({ data, body }) => (
+                <a
+                  href={`/posts/${slugify(data)}`}
+                  class='item font-normal mb-6 mt-2 no-underline'
+                >
+                  <li>
+                    <div class='text-lg leading-1.2rem'>{data.title}</div>
+                    <time
+                      class='op-50 text-sm'
+                      datetime={dayjs(data.pubDatetime).toISOString()}
+                    >
+                      {formatDate(data.pubDatetime)} · {getReadingTime(body)}
+                    </time>
+                  </li>
+                </a>
+              ))}
+            </Fragment>
+          ))
+      }
+    </ul>
+  </Main>
+</Layout>
+
+<style>
+  a.item {
+    --at-apply: op-60 transition-opacity;
+    transition-duration: 0.2s;
+  }
+  a.item:hover {
+    opacity: 1;
+  }
+</style>

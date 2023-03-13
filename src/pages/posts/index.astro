@@ -1,6 +1,6 @@
 ---
 import Posts from '@layouts/Posts.astro'
-import getSortedPosts from '@utils/getSortedPosts'
+import { getSortedPosts } from '@utils/posts'
 
 import { getCollection } from 'astro:content'
 
@@ -9,4 +9,4 @@ const posts = await getCollection('blog')
 const sortedPosts = getSortedPosts(posts)
 ---
 
-<Posts posts={sortedPosts} pageNum={1} />
+<Posts posts={sortedPosts} />
