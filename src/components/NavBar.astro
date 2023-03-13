@@ -21,21 +21,23 @@ import { github, instagram, twitter } from '@/meta'
       class='w-11 h-11 mt-0.6rem mx-6 outline-none hover:op-70 transition-opacity'
       href='/'
     >
-      <!-- <img
+      <img
         v-show='isDark'
+        class="logo-dark"
         width='44'
         height='44'
-        src='/logo-dark.svg'
+        src='/logo-dark.png'
         alt='logo'
       />
       <img
         v-show='!isDark'
+        class="logo-light"
         width='44'
         height='44'
-        src='/logo-light.svg'
+        src='/logo-light.png'
         alt='logo'
-      /> -->
-      riri
+      />
+      <!-- riri -->
     </a>
 
     <nav class='nav box-border py-5 px-6 flex items-center space-x-3'>
@@ -84,5 +86,12 @@ import { github, instagram, twitter } from '@/meta'
   .nav button:hover {
     opacity: 1;
     text-decoration-color: inherit;
+  }
+
+  .logo-light {
+    --at-apply: dark:display-none;
+  }
+  .logo-dark {
+    --at-apply: display-none dark:display-block;
   }
 </style>
