@@ -1,0 +1,36 @@
+---
+import { author, email, site } from '@/meta'
+
+const {className = ''} = Astro.props
+---
+
+<footer class={`flex items-center flex-col-reverse sm:flex-row lt-sm:gap-4 text-4 my-10 justify-between ${className}`}>
+  <div text-sm op-50>
+    <a
+      class='item'
+      target='_blank'
+      href='https://creativecommons.org/licenses/by-nc/4.0/'>CC BY-NC-SA 4.0</a
+    >
+    2023 ©
+    <a href={`mailto:${email}`} class='item'>{author}</a>
+  </div>
+  <div class="op-70 text-sm">
+      <a class="item" href="/test">
+        Blog
+      </a>
+      <span> · </span>
+      <a
+        class="item"
+        target="_blank"
+        href={`/rss.xml`}
+        aria-label="rss feed"
+        title="RSS Feed"
+      >RSS</a>
+    </div>
+</footer>
+
+<style scoped>
+  footer a.item {
+    --at-apply: pb-0.3 border-b border-transparent hover:border-c-fg transition-border-color-300
+  }
+</style>

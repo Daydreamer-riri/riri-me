@@ -1,18 +1,13 @@
 ---
-import '../styles/base.css'
-import * as GreatPost from './test.md'
+import Layout from '@layouts/layout.astro'
+import Default from '@layouts/default.astro'
+import * as Home from '../content/index.md'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-    <GreatPost.Content></GreatPost.Content>
-	</body>
-</html>
+<Layout>
+  <Default>
+    <div class='prose m-auto'>
+      <Home.Content />
+    </div>
+  </Default>
+</Layout>

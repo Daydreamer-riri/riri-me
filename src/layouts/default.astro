@@ -1,0 +1,22 @@
+---
+// import Breadcrumbs from "@components/Breadcrumbs.astro";
+import Footer from '@components/footer.astro'
+import NavBar from '@components/NavBar.astro'
+
+// export interface Props {
+//   pageTitle: string
+//   pageDesc?: string
+// }
+
+// const { pageTitle, pageDesc } = Astro.props
+---
+
+<div>
+  <NavBar />
+  <main px-7 py-10>
+    <slot />
+  </main>
+  <Footer className='max-w-content m-auto' />
+</div>
+
+<style></style>

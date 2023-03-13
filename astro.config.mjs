@@ -9,6 +9,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://riri-me.netlify.app',
   integrations: [UnoCss(), react(), sitemap()],
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: 'Table of content' }]],
