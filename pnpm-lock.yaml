@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@astrojs/prefetch': ^0.2.1
   '@astrojs/react': ^2.0.2
   '@astrojs/rss': ^2.1.0
   '@astrojs/sitemap': ^1.0.1
@@ -24,6 +25,7 @@ specifiers:
   unplugin-icons: ^0.15.3
 
 dependencies:
+  '@astrojs/prefetch': 0.2.1
   '@astrojs/rss': registry.npmmirror.com/@astrojs/rss/2.2.0
   '@unocss/reset': registry.npmmirror.com/@unocss/reset/0.50.4
   ahooks: 3.7.5_react@18.2.0
@@ -49,6 +51,12 @@ devDependencies:
   unplugin-icons: registry.npmmirror.com/unplugin-icons/0.15.3
 
 packages:
+
+  /@astrojs/prefetch/0.2.1:
+    resolution: {integrity: sha512-kVDhUl0BzN/3D1NJL5ndgKK5Dk/mdSf5LinKrPIVVVND+hrdErkihV53sA3pyffdw488pFvAiFu2+LW/DWhiHA==}
+    dependencies:
+      throttles: 1.0.1
+    dev: false
 
   /@esbuild/android-arm/0.16.17:
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
@@ -424,6 +432,11 @@ packages:
   /screenfull/5.2.0:
     resolution: {integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /throttles/1.0.1:
+    resolution: {integrity: sha512-fab7Xg+zELr9KOv4fkaBoe/b3L0GMGLd0IBSCn16GoE/Qx6/OfCr1eGNyEcDU2pUA79qQfZ8kPQWlRuok4YwTw==}
+    engines: {node: '>=6'}
     dev: false
 
   /trough/2.1.0:

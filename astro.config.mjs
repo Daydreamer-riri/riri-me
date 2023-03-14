@@ -8,13 +8,22 @@ import remarkCollapse from 'remark-collapse'
 import rehypeAutoLindHeadings from 'rehype-autolink-headings'
 import sitemap from '@astrojs/sitemap'
 
+import prefetch from '@astrojs/prefetch'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://riri-me.netlify.app',
-  integrations: [UnoCss(), react(), sitemap()],
+  integrations: [UnoCss(), react(), sitemap(), prefetch()],
   markdown: {
     remarkPlugins: [remarkToc],
-    rehypePlugins: [[rehypeAutoLindHeadings, { behavior: 'prepend' }]],
+    rehypePlugins: [
+      [
+        rehypeAutoLindHeadings,
+        {
+          behavior: 'prepend',
+        },
+      ],
+    ],
     shikiConfig: {
       wrap: true,
       theme: 'vitesse-dark',
