@@ -6,6 +6,7 @@ import Layout from './layout.astro'
 import Main from './Main.astro'
 import { formatDate, getReadingTime, getYearToPostMap } from '@utils/posts'
 import slugify from '@utils/slugify'
+import LinkButton from '@components/LinkButton.astro'
 
 export interface Props {
   posts: CollectionEntry<'blog'>[]
@@ -58,6 +59,15 @@ const yearToPostMap = getYearToPostMap(posts)
           ))
       }
     </ul>
+    <div class='prose m-auto my-8'>
+      <br />
+      <span font-mono op-50>{`> `}</span><LinkButton
+        href='/'
+        className='op-50 font-mono hover:op-75'
+      >
+        cd ..
+      </LinkButton>
+    </div>
   </Main>
 </Layout>
 
