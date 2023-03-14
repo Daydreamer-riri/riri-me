@@ -13,7 +13,7 @@ import prefetch from '@astrojs/prefetch'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://riri-me.netlify.app',
-  integrations: [UnoCss(), react(), sitemap(), prefetch()],
+  integrations: [UnoCss(), react(), sitemap(), prefetch({ throttle: 3 })],
   markdown: {
     remarkPlugins: [remarkToc],
     rehypePlugins: [

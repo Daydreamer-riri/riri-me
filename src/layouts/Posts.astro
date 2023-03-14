@@ -41,6 +41,7 @@ const yearToPostMap = getYearToPostMap(posts)
               </div>
               {yearToPostMap[year].map(({ data, body }) => (
                 <a
+                  rel='prefetch'
                   href={`/posts/${slugify(data)}`}
                   class='item font-normal mb-6 mt-2 no-underline'
                 >
