@@ -514,7 +514,7 @@ html:not(.dark) .shiki-dark {
 }
 
 .prose pre:not(.shiki) {
-  --at-apply: bg-transparent p-0 m-0;
+  /* --at-apply: bg-transparent p-0 m-0; */
 }
 
 .prose :not(pre)>code {
@@ -523,7 +523,7 @@ html:not(.dark) .shiki-dark {
 }
 
 .prose pre {
-  --at-apply: relative m-0 py-4 px-0 rd overflow-x-auto;
+  --at-apply: relative m-0 py-4 px-4 rd overflow-x-auto;
   --at-apply: text-#e5e7eb text-4 bg-transparent;
 }
 
@@ -540,6 +540,7 @@ html:not(.dark) .shiki-dark {
 .prose .shiki code {
   --at-apply: block py-0 px-6 min-w-full text-sm text-c-fgDeep leading-1.5em;
 }
+
 
 .prose [class*=language-] code .diff,
 .prose [class*=language-] code .highlighted {
@@ -629,40 +630,44 @@ html:not(.dark) .shiki-dark {
 /** EndSection: */
 
 /** Section: MD-Plugin: TOC */
+#table-of-contents {
+  --at-apply: hidden;
+}
+
 @media (max-width: 1250px) {
-  .table-of-contents {
+  #table-of-contents, #table-of-contents + ul {
     --at-apply: hidden;
   }
 }
 
-.table-of-contents {
+#table-of-contents + ul {
   --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0 overflow-hidden op-0 transition-all-400;
   right: calc((100% - 70ch) / 2 - 400px);
 }
 
-.table-of-contents:hover {
+#table-of-contents + ul:hover {
   --at-apply: op-100;
 }
 
-.table-of-contents a {
+#table-of-contents + ul a {
   --at-apply: block border-none transition-colors-200 text-0.8rem truncate;
   --at-apply: text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60;
   --at-apply: hover:text-c-fgDeeper focus:text-c-fgDeeper;
 }
 
-.table-of-contents ul>li::before {
+#table-of-contents + ul li::before {
   --at-apply: hidden;
 }
 
-.table-of-contents ul>li {
+#table-of-contents + ul li {
   --at-apply: pl-3;
 }
 
-.table-of-contents ul ul {
+#table-of-contents + ul ul {
   --at-apply: my-0;
 }
 
-.table-of-contents ul:first-child {
+#table-of-contents + ul:first-child {
   --at-apply: border-l border-c-border;
 }
 

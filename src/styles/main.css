@@ -1,11 +1,9 @@
 @import './vars.css';
 @import './prose.css';
 
-@media (prefers-color-scheme: light) {
-  .astro-code {
-    background-color: rgb(248, 248, 248) !important;
-    /* filter: invert(98%) hue-rotate(180deg); */
-  }
+html.light .astro-code {
+  background-color: rgb(248, 248, 248) !important;
+  /* filter: invert(98%) hue-rotate(180deg); */
 }
 
 tml {
@@ -14,6 +12,7 @@ tml {
 
 html.dark {
   --at-apply: bg-d-bg;
+  color-scheme: dark;
 }
 
 * {
