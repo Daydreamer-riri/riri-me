@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import { getSortedPosts } from '@utils/posts'
+import slugify from '@utils/slugify'
+import PostDetail from '@layouts/PostDetail.astro'
+
+export interface Props {
+  post: CollectionEntry<'blog'>
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft)
+
+  const postResult = posts.map(post => ({
+    params: { slug: slugify(post.data) },
+    props: { post },
+  }))
+
+  return [...postResult]
+}
+
+const { slug } = Astro.params
+const { post } = Astro.props
+---
+
+<PostDetail post={post} />
