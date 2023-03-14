@@ -1,9 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="131.000000pt" height="108.000000pt" viewBox="0 0 131.000000 108.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,108.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="#ffffff" stroke="none">
 <path d="M5 1069 c-4 -5 14 -41 40 -80 25 -38 60 -99 76 -135 l30 -67 -36 -80
 c-61 -132 -78 -213 -79 -367 -1 -116 2 -144 22 -201 24 -71 78 -139 109 -139
 31 0 78 55 97 111 39 121 25 379 -30 576 l-26 91 36 55 c61 92 161 169 200
@@ -27,7 +30,4 @@ c-61 -132 -78 -213 -79 -367 -1 -116 2 -144 22 -201 24 -71 78 -139 109 -139
 <path d="M1091 611 c-19 -12 -6 -41 18 -41 23 0 34 23 18 39 -13 13 -18 13
 -36 2z"/>
 </g>
-	<style>
-    @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
-  </style>
 </svg>
