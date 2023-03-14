@@ -1,5 +1,8 @@
 ---
 import { github, instagram, twitter } from '@/meta'
+// import { Image } from 'astro:assets'
+import logoDark from '../assets/logo-dark.png'
+import logoLight from '../assets/logo-light.png'
 ---
 
 <header
@@ -23,19 +26,17 @@ import { github, instagram, twitter } from '@/meta'
       href='/'
     >
       <img
-        v-show='isDark'
         class='logo-dark'
         width='44'
         height='36.27'
-        src='/logo-dark.svg'
+        src={logoDark}
         alt='logo'
       />
       <img
-        v-show='!isDark'
         class='logo-light'
         width='44'
         height='36.27'
-        src='/logo-light.svg'
+        src={logoLight}
         alt='logo'
       />
       <!-- riri -->
@@ -52,19 +53,25 @@ import { github, instagram, twitter } from '@/meta'
       </a>
       <span class='nav-divider'></span>
 
-      <a href={twitter} target='_blank' title='Twitter'>
+      <a href={twitter} target='_blank' title='Twitter' lt-md:hidden>
         <div i-uil:twitter-alt></div>
       </a>
-      <a href={instagram} target='_blank' title='Instagram'>
+      <a href={instagram} target='_blank' title='Instagram' lt-md:hidden>
         <div i-lucide:instagram></div>
       </a>
-      <a href={github} target='_blank' title='GitHub' rel='noreferrer'>
+      <a
+        href={github}
+        target='_blank'
+        title='GitHub'
+        rel='noreferrer'
+         lt-md:hidden
+      >
         <div i-uil-github-alt></div>
       </a>
-      <a href={`/rss.xml`} target='_blank' title='RSS'>
+      <a href={`/rss.xml`} target='_blank' title='RSS' lt-md:hidden>
         <div i-lucide:rss></div>
       </a>
-      <span class='nav-divider'></span>
+      <span class='nav-divider lt-md:hidden'></span>
       <!-- the toggle theme logic is in /public/toggle-theme.js -->
       <button title='Toggle Color Scheme' id='theme-btn'>
         <div class='i-ri-sun-line dark:i-ri-moon-line'></div>
@@ -93,6 +100,6 @@ import { github, instagram, twitter } from '@/meta'
     --at-apply: dark:display-none;
   }
   .logo-dark {
-    --at-apply: display-none dark:display-block;
+    --at-apply: 'display-none dark:display-block';
   }
 </style>
