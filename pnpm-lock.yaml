@@ -19,6 +19,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   rehype-autolink-headings: ^6.1.1
+  rehype-slug: ^5.1.0
   remark-collapse: ^0.1.2
   remark-toc: ^8.0.1
   satori: ^0.1.2
@@ -36,6 +37,7 @@ dependencies:
   github-slugger: registry.npmmirror.com/github-slugger/2.0.0
   medium-zoom: 1.0.8
   rehype-autolink-headings: 6.1.1
+  rehype-slug: 5.1.0
   remark-collapse: registry.npmmirror.com/remark-collapse/0.1.2
   remark-toc: registry.npmmirror.com/remark-toc/8.0.1
   satori: registry.npmmirror.com/satori/0.1.2
@@ -351,6 +353,10 @@ packages:
       lit: 2.6.1
     dev: true
 
+  /github-slugger/2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
+    dev: false
+
   /hast-util-has-property/2.0.1:
     resolution: {integrity: sha512-X2+RwZIMTMKpXUzlotatPzWj8bspCymtXH3cfG3iQKV+wPF53Vgaqxi/eLqGck0wKq1kS9nvoB1wchbCPEL8sg==}
     dev: false
@@ -366,6 +372,12 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/unist': 2.0.6
+    dev: false
+
+  /hast-util-to-string/2.0.0:
+    resolution: {integrity: sha512-02AQ3vLhuH3FisaMM+i/9sm4OXGSq1UhOOCpTLLQtHdL3tZt7qil69r8M8iDkZYyC0HCFylcYoP+8IO7ddta1A==}
+    dependencies:
+      '@types/hast': 2.3.4
     dev: false
 
   /intersection-observer/0.12.2:
@@ -427,6 +439,18 @@ packages:
       hast-util-has-property: 2.0.1
       hast-util-heading-rank: 2.1.1
       hast-util-is-element: 2.1.3
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
+    dev: false
+
+  /rehype-slug/5.1.0:
+    resolution: {integrity: sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==}
+    dependencies:
+      '@types/hast': 2.3.4
+      github-slugger: 2.0.0
+      hast-util-has-property: 2.0.1
+      hast-util-heading-rank: 2.1.1
+      hast-util-to-string: 2.0.0
       unified: 10.1.2
       unist-util-visit: 4.1.2
     dev: false
@@ -1189,7 +1213,7 @@ packages:
     name: '@types/nlcst'
     version: 1.0.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/@types/node/17.0.45:
@@ -2439,8 +2463,8 @@ packages:
     name: hast-util-from-parse5
     version: 7.1.2
     dependencies:
-      '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/hast': 2.3.4
+      '@types/unist': 2.0.6
       hastscript: registry.npmmirror.com/hastscript/7.2.0
       property-information: registry.npmmirror.com/property-information/6.2.0
       vfile: registry.npmmirror.com/vfile/5.3.7
@@ -2461,14 +2485,14 @@ packages:
     name: hast-util-raw
     version: 7.2.3
     dependencies:
-      '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
+      '@types/hast': 2.3.4
       '@types/parse5': registry.npmmirror.com/@types/parse5/6.0.3
       hast-util-from-parse5: registry.npmmirror.com/hast-util-from-parse5/7.1.2
       hast-util-to-parse5: registry.npmmirror.com/hast-util-to-parse5/7.1.0
       html-void-elements: registry.npmmirror.com/html-void-elements/2.0.1
       parse5: registry.npmmirror.com/parse5/6.0.1
       unist-util-position: registry.npmmirror.com/unist-util-position/4.0.4
-      unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.2
+      unist-util-visit: 4.1.2
       vfile: registry.npmmirror.com/vfile/5.3.7
       web-namespaces: registry.npmmirror.com/web-namespaces/2.0.1
       zwitch: registry.npmmirror.com/zwitch/2.0.4
@@ -2479,7 +2503,7 @@ packages:
     name: hast-util-to-html
     version: 8.0.4
     dependencies:
-      '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
+      '@types/hast': 2.3.4
       '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
       ccount: registry.npmmirror.com/ccount/2.0.1
       comma-separated-tokens: registry.npmmirror.com/comma-separated-tokens/2.0.3
@@ -2880,7 +2904,7 @@ packages:
     version: 5.1.2
     dependencies:
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-visit: 4.1.2
     dev: false
 
@@ -2891,8 +2915,8 @@ packages:
     dependencies:
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
       escape-string-regexp: registry.npmmirror.com/escape-string-regexp/5.0.0
-      unist-util-is: registry.npmmirror.com/unist-util-is/5.2.1
-      unist-util-visit-parents: registry.npmmirror.com/unist-util-visit-parents/5.1.3
+      unist-util-is: 5.2.1
+      unist-util-visit-parents: 5.1.3
     dev: false
 
   registry.npmmirror.com/mdast-util-from-markdown/1.3.0:
@@ -2998,7 +3022,7 @@ packages:
     version: 3.0.1
     dependencies:
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      unist-util-is: registry.npmmirror.com/unist-util-is/5.2.1
+      unist-util-is: 5.2.1
     dev: false
 
   registry.npmmirror.com/mdast-util-to-hast/12.3.0:
@@ -3006,14 +3030,14 @@ packages:
     name: mdast-util-to-hast
     version: 12.3.0
     dependencies:
-      '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
+      '@types/hast': 2.3.4
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
       mdast-util-definitions: registry.npmmirror.com/mdast-util-definitions/5.1.2
       micromark-util-sanitize-uri: registry.npmmirror.com/micromark-util-sanitize-uri/1.1.0
       trim-lines: registry.npmmirror.com/trim-lines/3.0.1
       unist-util-generated: registry.npmmirror.com/unist-util-generated/2.0.1
       unist-util-position: registry.npmmirror.com/unist-util-position/4.0.4
-      unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.2
+      unist-util-visit: 4.1.2
     dev: false
 
   registry.npmmirror.com/mdast-util-to-markdown/1.5.0:
@@ -3022,7 +3046,7 @@ packages:
     version: 1.5.0
     dependencies:
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       longest-streak: registry.npmmirror.com/longest-streak/3.1.0
       mdast-util-phrasing: registry.npmmirror.com/mdast-util-phrasing/3.0.1
       mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/3.1.1
@@ -3933,8 +3957,8 @@ packages:
     dependencies:
       '@types/nlcst': registry.npmmirror.com/@types/nlcst/1.0.0
       nlcst-to-string: registry.npmmirror.com/nlcst-to-string/3.1.1
-      unified: registry.npmmirror.com/unified/10.1.2
-      unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.2
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
     dev: false
 
   registry.npmmirror.com/retext-stringify/3.1.0:
@@ -3955,7 +3979,7 @@ packages:
       '@types/nlcst': registry.npmmirror.com/@types/nlcst/1.0.0
       retext-latin: registry.npmmirror.com/retext-latin/3.1.0
       retext-stringify: registry.npmmirror.com/retext-stringify/3.1.0
-      unified: registry.npmmirror.com/unified/10.1.2
+      unified: 10.1.2
     dev: false
 
   registry.npmmirror.com/reusify/1.0.4:
@@ -4473,7 +4497,7 @@ packages:
     name: unist-util-position
     version: 4.0.4
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/unist-util-stringify-position/3.0.3:
@@ -4624,7 +4648,7 @@ packages:
     name: vfile-location
     version: 4.1.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       vfile: registry.npmmirror.com/vfile/5.3.7
     dev: false
 
