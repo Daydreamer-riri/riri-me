@@ -20,6 +20,7 @@ specifiers:
   react-dom: ^18.2.0
   rehype-autolink-headings: ^6.1.1
   rehype-slug: ^5.1.0
+  rehype-toc: ^3.0.2
   remark-collapse: ^0.1.2
   remark-toc: ^8.0.1
   satori: ^0.1.2
@@ -38,6 +39,7 @@ dependencies:
   medium-zoom: 1.0.8
   rehype-autolink-headings: 6.1.1
   rehype-slug: 5.1.0
+  rehype-toc: 3.0.2
   remark-collapse: registry.npmmirror.com/remark-collapse/0.1.2
   remark-toc: registry.npmmirror.com/remark-toc/8.0.1
   satori: registry.npmmirror.com/satori/0.1.2
@@ -282,6 +284,11 @@ packages:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
 
+  /@jsdevtools/rehype-toc/3.0.2:
+    resolution: {integrity: sha512-n5JEf16Wr4mdkRMZ8wMP/wN9/sHmTjRPbouXjJH371mZ2LEGDl72t8tEsMRNFerQN/QJtivOxqK1frdGa4QK5Q==}
+    engines: {node: '>=10'}
+    dev: false
+
   /@lit-labs/ssr-dom-shim/1.0.0:
     resolution: {integrity: sha512-ic93MBXfApIFTrup4a70M/+ddD8xdt2zxxj9sRwHQzhS9ag/syqkD8JPdTXsc1gUy2K8TTirhlCqyTEM/sifNw==}
     dev: true
@@ -453,6 +460,13 @@ packages:
       hast-util-to-string: 2.0.0
       unified: 10.1.2
       unist-util-visit: 4.1.2
+    dev: false
+
+  /rehype-toc/3.0.2:
+    resolution: {integrity: sha512-DMt376+4i1KJGgHJL7Ezd65qKkJ7Eqp6JSB47BJ90ReBrohI9ufrornArM6f4oJjP2E2DVZZHufWucv/9t7GUQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@jsdevtools/rehype-toc': 3.0.2
     dev: false
 
   /resize-observer-polyfill/1.5.1:

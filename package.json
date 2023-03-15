@@ -21,6 +21,7 @@
     "medium-zoom": "^1.0.8",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
+    "rehype-toc": "^3.0.2",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^8.0.1",
     "satori": "^0.1.2"
