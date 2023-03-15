@@ -6,9 +6,15 @@ import react from '@astrojs/react'
 import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
 import rehypeAutoLindHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
 import sitemap from '@astrojs/sitemap'
 
 import prefetch from '@astrojs/prefetch'
+
+const headerAnchor = {
+  type: 'text',
+  value: '#',
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,10 +23,13 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkToc],
     rehypePlugins: [
+      rehypeSlug,
       [
         rehypeAutoLindHeadings,
         {
-          behavior: 'prepend',
+          behavior: 'append',
+          properties: { class: 'header-anchor' },
+          content: headerAnchor,
         },
       ],
     ],
