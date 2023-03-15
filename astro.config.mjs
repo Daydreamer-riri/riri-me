@@ -6,6 +6,7 @@ import react from '@astrojs/react'
 import remarkToc from 'remark-toc'
 import rehypeAutoLindHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
+import rehypeToc from 'rehype-toc'
 import sitemap from '@astrojs/sitemap'
 
 import prefetch from '@astrojs/prefetch'
@@ -20,9 +21,10 @@ export default defineConfig({
   site: 'https://riri-me.netlify.app',
   integrations: [UnoCss(), react(), sitemap(), prefetch({ throttle: 3 })],
   markdown: {
-    remarkPlugins: [remarkToc],
     rehypePlugins: [
       rehypeSlug,
+      // @ts-expect-error
+      rehypeToc,
       [
         rehypeAutoLindHeadings,
         {

@@ -630,44 +630,40 @@ html:not(.dark) .shiki-dark {
 /** EndSection: */
 
 /** Section: MD-Plugin: TOC */
-#table-of-contents {
-  --at-apply: hidden;
-}
-
 @media (max-width: 1250px) {
-  #table-of-contents, #table-of-contents + ul {
+  .toc, .toc ol {
     --at-apply: hidden;
   }
 }
 
-#table-of-contents + ul {
+.toc {
   --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0 overflow-hidden op-0 transition-all-400;
   right: calc((100% - 70ch) / 2 - 400px);
 }
 
-#table-of-contents + ul:hover {
+.toc:hover {
   --at-apply: op-100;
 }
 
-#table-of-contents + ul a {
-  --at-apply: block border-none transition-colors-200 text-0.8rem truncate;
+.toc a {
+  --at-apply: border-none transition-colors-200 text-0.8rem truncate;
   --at-apply: text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60;
   --at-apply: hover:text-c-fgDeeper focus:text-c-fgDeeper;
 }
 
-#table-of-contents + ul li::before {
+.toc ol>li::before {
   --at-apply: hidden;
 }
 
-#table-of-contents + ul li {
-  --at-apply: pl-3;
+.toc ol>li {
+  --at-apply: pl-3 my-.75rem;
 }
 
-#table-of-contents + ul ul {
+.toc ol ol {
   --at-apply: my-0;
 }
 
-#table-of-contents + ul:first-child {
+.toc ol:first-child {
   --at-apply: border-l border-c-border;
 }
 
