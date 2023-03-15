@@ -34,11 +34,11 @@ Contents are now fetched with `getCollection` function. No relative path to the 
 
 ```ts
 // old content fetching method
-- const postImportResult = import.meta.glob<MarkdownInstance<Frontmatter>>(
-  "../contents/**/**/*.md",);
+const postImportResult = import.meta.glob<MarkdownInstance<Frontmatter>>(
+  '../contents/**/**/*.md',)
 
 // new content fetching method
-+ const postImportResult = await getCollection("blog");
+const postImportResult = await getCollection('blog')
 ```
 
 ### Modified Search Logic for better Search Result

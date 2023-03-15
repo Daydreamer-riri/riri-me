@@ -3,7 +3,7 @@ export const site = 'https://riri-me.netlify.app'
 export const siteShort = 'https://riri-me.netlify.app'
 export const title = 'riri-me'
 export const keywords = 'Riri'
-export const description = "Riri's Personal Website"
+export const description = 'Riri\'s Personal Website'
 export const author = 'Riri'
 
 /** social links */

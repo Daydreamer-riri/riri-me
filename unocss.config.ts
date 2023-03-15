@@ -63,7 +63,7 @@ const mergeVarCols = () => {
   const res = Object.assign([])
   const lightMP: any = _VARS?.colors?.l
   for (const name in lightMP) {
-    COLS.forEach(key => {
+    COLS.forEach((key) => {
       const item = [`${key}-c-${name}`]
       const val = [`${key}-l-${name}`]
       if (Object.prototype.hasOwnProperty.call(_VARS?.colors?.d, name))
@@ -86,9 +86,9 @@ export default defineConfig({
   presets: [
     presetIcons({
       extraProperties: {
-        display: 'inline-block',
-        height: '1.2em',
-        width: '1.2em',
+        'display': 'inline-block',
+        'height': '1.2em',
+        'width': '1.2em',
         'vertical-align': 'text-bottom',
       },
     }),
