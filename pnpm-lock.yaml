@@ -21,8 +21,6 @@ specifiers:
   rehype-autolink-headings: ^6.1.1
   rehype-slug: ^5.1.0
   rehype-toc: ^3.0.2
-  remark-collapse: ^0.1.2
-  remark-toc: ^8.0.1
   satori: ^0.1.2
   unocss: ^0.50.3
   unplugin-icons: ^0.15.3
@@ -40,8 +38,6 @@ dependencies:
   rehype-autolink-headings: 6.1.1
   rehype-slug: 5.1.0
   rehype-toc: 3.0.2
-  remark-collapse: registry.npmmirror.com/remark-collapse/0.1.2
-  remark-toc: registry.npmmirror.com/remark-toc/8.0.1
   satori: registry.npmmirror.com/satori/0.1.2
 
 devDependencies:
@@ -1181,12 +1177,6 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/estree/-/estree-1.0.0.tgz}
     name: '@types/estree'
     version: 1.0.0
-
-  registry.npmmirror.com/@types/extend/3.0.1:
-    resolution: {integrity: sha512-R1g/VyKFFI2HLC1QGAeTtCBWCo6n75l41OnsVYNbmKG+kempOESaodf6BeJyUM3Q0rKa/NQcTHbB2+66lNnxLw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/extend/-/extend-3.0.1.tgz}
-    name: '@types/extend'
-    version: 3.0.1
-    dev: false
 
   registry.npmmirror.com/@types/github-slugger/1.3.0:
     resolution: {integrity: sha512-J/rMZa7RqiH/rT29TEVZO4nBoDP9XJOjnbbIofg7GQKs4JIduEO3WLpte+6WeUz/TcrXKlY+bM7FYrp8yFB+3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/github-slugger/-/github-slugger-1.3.0.tgz}
@@ -3022,14 +3012,6 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmmirror.com/mdast-util-heading-range/2.1.5:
-    resolution: {integrity: sha512-jXbFD0C+MfRkwsaze+btzG9CmVrxnc5kpcJLtx3SvSlPWnNdGMlDRHKDB9/TIPEq9nRHnkixppT8yvaUJ5agJg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-heading-range/-/mdast-util-heading-range-2.1.5.tgz}
-    name: mdast-util-heading-range
-    version: 2.1.5
-    dependencies:
-      mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/1.1.0
-    dev: false
-
   registry.npmmirror.com/mdast-util-phrasing/3.0.1:
     resolution: {integrity: sha512-WmI1gTXUBJo4/ZmSk79Wcb2HcjPJBzM1nlI/OUWA8yk2X9ik3ffNbBGsU+09BFmXaL1IBb9fiuvq6/KMiNycSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-phrasing/-/mdast-util-phrasing-3.0.1.tgz}
     name: mdast-util-phrasing
@@ -3069,32 +3051,12 @@ packages:
       zwitch: registry.npmmirror.com/zwitch/2.0.4
     dev: false
 
-  registry.npmmirror.com/mdast-util-to-string/1.1.0:
-    resolution: {integrity: sha512-jVU0Nr2B9X3MU4tSK7JP1CMkSvOj7X5l/GboG1tKRw52lLF1x2Ju92Ms9tNetCcbfX3hzlM73zYo2NKkWSfF/A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-to-string/-/mdast-util-to-string-1.1.0.tgz}
-    name: mdast-util-to-string
-    version: 1.1.0
-    dev: false
-
   registry.npmmirror.com/mdast-util-to-string/3.1.1:
     resolution: {integrity: sha512-tGvhT94e+cVnQt8JWE9/b3cUQZWS732TJxXHktvP+BYo62PpYD53Ls/6cC60rW21dW+txxiM4zMdc6abASvZKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-to-string/-/mdast-util-to-string-3.1.1.tgz}
     name: mdast-util-to-string
     version: 3.1.1
     dependencies:
       '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-    dev: false
-
-  registry.npmmirror.com/mdast-util-toc/6.1.1:
-    resolution: {integrity: sha512-Er21728Kow8hehecK2GZtb7Ny3omcoPUVrmObiSUwmoRYVZaXLR751QROEFjR8W/vAQdHMLj49Lz20J55XaNpw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-toc/-/mdast-util-toc-6.1.1.tgz}
-    name: mdast-util-toc
-    version: 6.1.1
-    dependencies:
-      '@types/extend': registry.npmmirror.com/@types/extend/3.0.1
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      extend: registry.npmmirror.com/extend/3.0.2
-      github-slugger: registry.npmmirror.com/github-slugger/2.0.0
-      mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/3.1.1
-      unist-util-is: registry.npmmirror.com/unist-util-is/5.2.1
-      unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.2
     dev: false
 
   registry.npmmirror.com/mdn-data/2.0.30:
@@ -3866,15 +3828,6 @@ packages:
       unified: registry.npmmirror.com/unified/10.1.2
     dev: false
 
-  registry.npmmirror.com/remark-collapse/0.1.2:
-    resolution: {integrity: sha512-x2lhtaT4nR1Tkp/hftoeiMHbdAntxu5Q9D6lymwMqUtoF2pg3bqNaa8NO/8yyOVhddYk0d0dkhGc+avGUf0lZA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/remark-collapse/-/remark-collapse-0.1.2.tgz}
-    name: remark-collapse
-    version: 0.1.2
-    dependencies:
-      mdast-util-heading-range: registry.npmmirror.com/mdast-util-heading-range/2.1.5
-      mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/1.1.0
-    dev: false
-
   registry.npmmirror.com/remark-gfm/3.0.1:
     resolution: {integrity: sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/remark-gfm/-/remark-gfm-3.0.1.tgz}
     name: remark-gfm
@@ -3920,16 +3873,6 @@ packages:
       retext: registry.npmmirror.com/retext/8.1.0
       retext-smartypants: registry.npmmirror.com/retext-smartypants/5.2.0
       unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.2
-    dev: false
-
-  registry.npmmirror.com/remark-toc/8.0.1:
-    resolution: {integrity: sha512-7he2VOm/cy13zilnOTZcyAoyoolV26ULlon6XyCFU+vG54Z/LWJnwphj/xKIDLOt66QmJUgTyUvLVHi2aAElyg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/remark-toc/-/remark-toc-8.0.1.tgz}
-    name: remark-toc
-    version: 8.0.1
-    dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      mdast-util-toc: registry.npmmirror.com/mdast-util-toc/6.1.1
-      unified: registry.npmmirror.com/unified/10.1.2
     dev: false
 
   registry.npmmirror.com/resolve/1.22.1:
