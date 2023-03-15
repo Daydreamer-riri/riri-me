@@ -22,8 +22,8 @@ const projects: Projects = {
       {
         name: 'ca-git',
         desc: 'Commitizen CLI adapter',
-        // iconClass: 'i-carbon-plug',
-        icon: () => <i>1234</i>,
+        iconClass: 'i-carbon-plug',
+        // icon: () => <i>1234</i>,
         link: 'https://cz-git.qbb.sh/guide/introduction',
       },
       {
@@ -35,10 +35,10 @@ const projects: Projects = {
     ],
     'VS Code Extensions:': [
       {
-        name: 'vitesse-qb',
-        desc: 'VS Code theme fork by Vitesse Theme',
-        iconClass: 'i-carbon-campsite',
-        link: 'https://github.com/Zhengqbbb/vitesse-qb-vscode-theme',
+        name: 'Iconfont reminder',
+        desc: 'The preview of the iconfont icon component for VS Code.',
+        iconClass: 'i-carbon:application',
+        link: 'https://github.com/Daydreamer-riri/vscode-ext-iconfont-reminder',
       },
     ],
     'Toys': [
