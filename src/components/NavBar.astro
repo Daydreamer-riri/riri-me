@@ -1,12 +1,12 @@
 ---
-import { github, instagram, twitter } from '@/meta'
 // import { Image } from 'astro:assets'
 import logoDark from '../assets/logo-dark.png'
 import logoLight from '../assets/logo-light.png'
+import { github, instagram, twitter } from '@/meta'
 ---
 
 <header
-  id='navbar'
+  id="navbar"
   z-40
   w-full
   h-17
@@ -17,64 +17,64 @@ import logoLight from '../assets/logo-light.png'
   backdrop-blur-4
   backdrop-saturate-50
   select-none
-  class='my-2.5'
+  class="my-2.5"
 >
-  <div class='max-w-120ch m-auto flex justify-between items-center'>
+  <div class="max-w-120ch m-auto flex justify-between items-center">
     <a
-      rel='prefetch'
-      class='w-11 h-11 mt-0.6rem mx-6 outline-none hover:op-70 transition-opacity box-border'
-      href='/'
+      rel="prefetch"
+      class="w-11 h-11 mt-0.6rem mx-6 outline-none hover:op-70 transition-opacity box-border"
+      href="/"
     >
       <img
-        class='logo-dark'
-        width='44'
-        height='36.27'
+        class="logo-dark"
+        width="44"
+        height="36.27"
         src={logoDark}
-        alt='logo'
+        alt="logo"
       />
       <img
-        class='logo-light'
-        width='44'
-        height='36.27'
+        class="logo-light"
+        width="44"
+        height="36.27"
         src={logoLight}
-        alt='logo'
+        alt="logo"
       />
       <!-- riri -->
     </a>
 
-    <nav class='nav box-border py-5 px-6 flex items-center space-x-3'>
-      <a rel='prefetch' href='/posts' title='Blog' class='nav-item'>
-        <div i-majesticons:paper-fold-text-line class='md:hidden'></div>
-        <span class='lt-md:hidden'>Blog</span>
+    <nav class="nav box-border py-5 px-6 flex items-center space-x-3">
+      <a rel="prefetch" href="/posts" title="Blog" class="nav-item">
+        <div i-majesticons:paper-fold-text-line class="md:hidden"></div>
+        <span class="lt-md:hidden">Blog</span>
       </a>
-      <a rel='prefetch' href='/projects' title='Projects' class='nav-item'>
-        <div i-ph:rocket-launch-duotone class='md:hidden'></div>
-        <span class='lt-md:hidden'>Projects</span>
+      <a rel="prefetch" href="/projects" title="Projects" class="nav-item">
+        <div i-ph:rocket-launch-duotone class="md:hidden"></div>
+        <span class="lt-md:hidden">Projects</span>
       </a>
-      <span class='nav-divider'></span>
+      <span class="nav-divider"></span>
 
-      <a href={twitter} target='_blank' title='Twitter' lt-md:hidden>
+      <a href={twitter} target="_blank" title="Twitter" lt-md:hidden rel="noreferrer">
         <div i-uil:twitter-alt></div>
       </a>
-      <a href={instagram} target='_blank' title='Instagram' lt-md:hidden>
+      <a href={instagram} target="_blank" title="Instagram" lt-md:hidden rel="noreferrer">
         <div i-lucide:instagram></div>
       </a>
       <a
         href={github}
-        target='_blank'
-        title='GitHub'
-        rel='noreferrer'
+        target="_blank"
+        title="GitHub"
+        rel="noreferrer"
          lt-md:hidden
       >
         <div i-uil-github-alt></div>
       </a>
-      <a href={`/rss.xml`} target='_blank' title='RSS' lt-md:hidden>
+      <a href={'/rss.xml'} target="_blank" title="RSS" lt-md:hidden rel="noreferrer">
         <div i-lucide:rss></div>
       </a>
-      <span class='nav-divider lt-md:hidden'></span>
+      <span class="nav-divider lt-md:hidden"></span>
       <!-- the toggle theme logic is in /public/toggle-theme.js -->
-      <button title='Toggle Color Scheme' id='theme-btn'>
-        <div class='i-ri-sun-line dark:i-ri-moon-line'></div>
+      <button title="Toggle Color Scheme" id="theme-btn">
+        <div class="i-ri-sun-line dark:i-ri-moon-line"></div>
       </button>
     </nav>
   </div>

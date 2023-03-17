@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
-import { getSortedPosts } from '@utils/posts'
 import slugify from '@utils/slugify'
 import PostDetail from '@layouts/PostDetail.astro'
 
@@ -20,7 +19,6 @@ export async function getStaticPaths() {
   return [...postResult]
 }
 
-const { slug } = Astro.params
 const { post } = Astro.props
 ---
 

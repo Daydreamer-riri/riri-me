@@ -9,22 +9,22 @@ const { className = '' } = Astro.props
 >
   <div text-sm op-50>
     <a
-      class='item'
-      target='_blank'
-      href='https://creativecommons.org/licenses/by-nc/4.0/'>CC BY-NC-SA 4.0</a
+      class="item"
+      target="_blank"
+      href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noreferrer">CC BY-NC-SA 4.0</a
     >
     2023 ©
-    <a href={`mailto:${email}`} class='item'>{author}</a>
+    <a href={`mailto:${email}`} class="item">{author}</a>
   </div>
-  <div class='op-70 text-sm'>
-    <a rel='prefetch' class='item' href='/posts'> Blog</a>
+  <div class="op-70 text-sm">
+    <a rel="prefetch" class="item" href="/posts"> Blog</a>
     <span> ·</span>
     <a
-      class='item'
-      target='_blank'
-      href={`/rss.xml`}
-      aria-label='rss feed'
-      title='RSS Feed'>RSS</a
+      class="item"
+      target="_blank"
+      href={'/rss.xml'}
+      aria-label="rss feed"
+      title="RSS Feed" rel="noreferrer">RSS</a
     >
   </div>
 </footer>

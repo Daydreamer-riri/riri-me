@@ -7,25 +7,25 @@ const { projects } = Astro.props
 const projectsTypes = Object.keys(projects)
 ---
 
-<ul class='pt-4'>
+<ul class="pt-4">
   {
     projectsTypes.map(title => (
       <Fragment>
-        <div class='my-3 text-1.4em op-40 font-600'>{title}</div>
+        <div class="my-3 text-1.4em op-40 font-600">{title}</div>
         <li class="wrap grid grid-cols-1 sm:grid-cols-2 py-2 gap-2 pl-0! before:w-0!">
-          {projects[title].map((item, index) => (
+          {projects[title].map(item => (
             <a
               href={item.link}
               title={item.name}
-              target='_blank'
-              class='item flex items-center space-x-5'
+              target="_blank"
+              class="item flex items-center space-x-5" rel="noreferrer"
             >
-              <div class='space-x-10'>
+              <div class="space-x-10">
                 <div class={`${item?.icon ? '' : item?.iconClass ?? 'i-carbon-unknown'} text-4xl w-1.2em h-1.2em`}>
                   {item?.icon && <item.icon />}
                 </div>
               </div>
-              <div class='flex-auto'>
+              <div class="flex-auto">
                 <div class="text-1.1rem whitespace-pre-wrap">{item.name}</div>
                 <div op-70 text-sm whitespace-pre-wrap>{item.desc}</div>
               </div>

@@ -1,10 +1,9 @@
 ---
-import Layout from './layout.astro'
-import Default from './default.astro'
 import type { CollectionEntry } from 'astro:content'
 import { formatDate, getReadingTime } from '@utils/posts'
-import Giscus from '@components/Giscus'
 import LinkButton from '@components/LinkButton.astro'
+import Default from './default.astro'
+import Layout from './layout.astro'
 
 export interface Props {
   post: CollectionEntry<'blog'>
@@ -12,29 +11,29 @@ export interface Props {
 
 const { post } = Astro.props
 
-const { title, author, description, ogImage, pubDatetime, tags } = post.data
+const { title, author, description, ogImage, pubDatetime } = post.data
 
 const { Content } = await post.render()
 
-const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin).href
+const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
   <Default>
-    <div class='prose m-auto mb-space'>
+    <div class="prose m-auto mb-space">
       <h1>{title}</h1>
-      <p class='op-50'>
+      <p class="op-50">
         {formatDate(pubDatetime)} · {getReadingTime(post.body)}
       </p>
     </div>
 
-    <article class='prose post m-auto'>
+    <article class="prose post m-auto">
       <Content />
     </article>
-    <div class='prose m-auto my-8'>
-      <span font-mono op-50>{`> `}</span><LinkButton
-        href='/posts'
-        className='op-50 font-mono hover:op-75'
+    <div class="prose m-auto my-8">
+      <span font-mono op-50>{'> '}</span><LinkButton
+        href="/posts"
+        className="op-50 font-mono hover:op-75"
       >
         cd ..
       </LinkButton>

@@ -1,12 +1,12 @@
 ---
 import dayjs from 'dayjs'
-import { title } from '@/meta'
 import type { CollectionEntry } from 'astro:content'
-import Layout from './layout.astro'
-import Main from './Main.astro'
 import { formatDate, getReadingTime, getYearToPostMap } from '@utils/posts'
 import slugify from '@utils/slugify'
 import LinkButton from '@components/LinkButton.astro'
+import Main from './Main.astro'
+import Layout from './layout.astro'
+import { title } from '@/meta'
 
 export interface Props {
   posts: CollectionEntry<'blog'>[]
@@ -17,38 +17,40 @@ const yearToPostMap = getYearToPostMap(posts)
 ---
 
 <Layout title={`posts | ${title}`}>
-  <Main pageTitle='Blog'>
+  <Main pageTitle="Blog">
     <ul>
       {
-        !posts.length ? (
+        !posts.length
+          ? (
           <div text-center op-80>
             nothing here yet
           </div>
-        ) : null
+            )
+          : null
       }
       {
         Object.keys(yearToPostMap)
           .reverse()
           .map(year => (
             <Fragment>
-              <div class='relative h-20 pointer-events-none'>
+              <div class="relative h-20 pointer-events-none">
                 <span
-                  class='text-8em op-10 absolute left--3rem top--2rem font-bold'
-                  style='line-height: 1.75;'
+                  class="text-8em op-10 absolute left--3rem top--2rem font-bold"
+                  style="line-height: 1.75;"
                 >
                   {year}
                 </span>
               </div>
               {yearToPostMap[year].map(({ data, body }) => (
                 <a
-                  rel='prefetch'
+                  rel="prefetch"
                   href={`/posts/${slugify(data)}`}
-                  class='item font-normal mb-6 mt-2 no-underline'
+                  class="item font-normal mb-6 mt-2 no-underline"
                 >
                   <li>
-                    <div class='text-lg leading-1.2rem'>{data.title}</div>
+                    <div class="text-lg leading-1.2rem">{data.title}</div>
                     <time
-                      class='op-50 text-sm'
+                      class="op-50 text-sm"
                       datetime={dayjs(data.pubDatetime).toISOString()}
                     >
                       {formatDate(data.pubDatetime)} · {getReadingTime(body)}
@@ -60,11 +62,11 @@ const yearToPostMap = getYearToPostMap(posts)
           ))
       }
     </ul>
-    <div class='prose m-auto my-8'>
+    <div class="prose m-auto my-8">
       <br />
-      <span font-mono op-50>{`> `}</span><LinkButton
-        href='/'
-        className='op-50 font-mono hover:op-75'
+      <span font-mono op-50>{'> '}</span><LinkButton
+        href="/"
+        className="op-50 font-mono hover:op-75"
       >
         cd ..
       </LinkButton>
