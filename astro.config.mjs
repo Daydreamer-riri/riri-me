@@ -22,7 +22,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [
       rehypeSlug,
-      // @ts-expect-error
+      // @ts-expect-error rehypeToc has type error
       rehypeToc,
       [
         rehypeAutoLindHeadings,
