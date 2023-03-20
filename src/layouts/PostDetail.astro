@@ -31,7 +31,8 @@ const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
       <Content />
     </article>
     <div class="prose m-auto my-8">
-      <span font-mono op-50>{'> '}</span><LinkButton
+      <span font-mono op-50>{'> '}</span>
+      <LinkButton
         href="/posts"
         className="op-50 font-mono hover:op-75"
       >

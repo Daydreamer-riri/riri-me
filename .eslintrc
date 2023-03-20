@@ -17,7 +17,8 @@
         // "astro/no-set-html-directive": "error"
         "react/jsx-key": "off",
         "react/no-unknown-property": "off",
-        "react/jsx-no-undef": "off"
+        "react/jsx-no-undef": "off",
+        "react/jsx-indent": "off"
       }
     }
     // ...
