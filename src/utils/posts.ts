@@ -5,9 +5,14 @@ export const getSortedPosts = (posts: CollectionEntry<'blog'>[]) =>
   posts
     .filter(({ data }) => !data.draft)
     .sort(
-      (a, b) =>
-        Math.floor(new Date(b.data.pubDatetime).getTime() / 1000)
-        - Math.floor(new Date(a.data.pubDatetime).getTime() / 1000),
+      (a, b) => {
+        const sub
+          = Math.floor(new Date(b.data.pubDatetime).getTime() / 1000)
+          - Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+        if (sub === 0)
+          return -1
+        return sub
+      },
     )
 
 export function getYearToPostMap(posts: CollectionEntry<'blog'>[]) {
