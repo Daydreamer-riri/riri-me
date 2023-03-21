@@ -8,7 +8,7 @@ tags:
 description: Regarding how to retrieve color scheme in a VS Code extension.
 ---
 
-When I was developing a prompt plugin for the icon font component, I wanted the color of the prompt icon to change according to the brightness of the current color theme to improve readability.
+When I was developing a prompt plugin for the icon font component, I wanted the color of the prompt icon to change according to the current color scheme to improve readability.
 
 At first, the API documentation for VS Code extensions was not clear to me, and I couldn't find relevant APIs. 
 
