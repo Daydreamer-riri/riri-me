@@ -41,16 +41,19 @@ const yearToPostMap = getYearToPostMap(posts)
                   {year}
                 </span>
               </div>
-              {yearToPostMap[year].map(({ data, body }) => (
+              {yearToPostMap[year].map(({ data, body, id }) => (
                 <a
                   rel="prefetch"
                   href={`/posts/${slugify(data)}`}
                   class="item font-normal mb-6 mt-2 no-underline"
                 >
                   <li>
-                    <div class="text-lg leading-1.2rem">{data.title}</div>
+                    {id.endsWith('-zh.md') && (
+                      <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2">中文</span>
+                    )}
+                    <span class="text-lg leading-1.2rem">{data.title}</span>
                     <time
-                      class="op-50 text-sm"
+                      class="op-50 text-sm block"
                       datetime={dayjs(data.pubDatetime).toISOString()}
                     >
                       {formatDate(data.pubDatetime)} · {getReadingTime(body)}
