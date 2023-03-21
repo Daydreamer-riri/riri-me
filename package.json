@@ -27,7 +27,6 @@
     "satori": "^0.1.2"
   },
   "devDependencies": {
-    "@astrojs/netlify": "^2.2.0",
     "@astrojs/react": "^2.1.0",
     "@astrojs/sitemap": "^1.2.1",
     "@giscus/react": "^2.2.8",

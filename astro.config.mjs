@@ -7,8 +7,7 @@ import rehypeAutoLindHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import sitemap from '@astrojs/sitemap'
-// @ts-expect-error The exports field is not recognized by ts in mjs
-import netlify from '@astrojs/netlify/edge-functions'
+
 import prefetch from '@astrojs/prefetch'
 
 const headerAnchor = {
@@ -19,8 +18,6 @@ const headerAnchor = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://riri-me.netlify.app',
-  output: 'server',
-  adapter: netlify(),
   integrations: [UnoCss(), react(), sitemap(), prefetch({ throttle: 3 })],
   markdown: {
     rehypePlugins: [
