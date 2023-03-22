@@ -1,13 +1,13 @@
 /** basic default site info */
-export const site = 'https://riri-me.netlify.app'
-export const siteShort = 'https://riri-me.netlify.app'
+export const site = 'https://daydreamer-riri.me'
+export const siteShort = 'https://daydreamer-riri.me'
 export const title = 'riri-me'
 export const keywords = 'Riri'
 export const description = 'Riri\'s Personal Website'
 export const author = 'Riri'
 
 /** social links */
-export const ogImg = 'https://qbb.sh/og/index.png'
+export const ogImg = 'https://daydreamer-riri.me/og/index.png'
 export const github = 'https://github.com/Daydreamer-riri'
 export const twitter = 'https://twitter.com/'
 export const twitterCreator = '@default'

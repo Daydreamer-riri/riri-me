@@ -17,7 +17,7 @@ const headerAnchor = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://riri-me.netlify.app',
+  site: 'https://daydreamer-riri.me',
   integrations: [UnoCss(), react(), sitemap(), prefetch({ throttle: 3 })],
   markdown: {
     rehypePlugins: [
@@ -44,5 +44,8 @@ export default defineConfig({
         compiler: 'astro',
       }),
     ],
+  },
+  experimental: {
+    assets: true,
   },
 })
