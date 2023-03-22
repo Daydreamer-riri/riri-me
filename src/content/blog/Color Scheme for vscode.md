@@ -36,7 +36,7 @@ Then I came across a method on antfu's blog:
 > }
 > ```
 
-This method was effective, but still somewhat awkward😣. So I continued my search and finally found in a VS Code issue that we can get the brightness of the current color theme like this:
+This method was effective, but still somewhat awkward😣. So I continued my search and finally found in a VS Code issue that we can get the current color scheme like this:
 
 ```js
 import { window } from 'vscode'
