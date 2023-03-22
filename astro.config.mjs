@@ -17,7 +17,7 @@ const headerAnchor = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://daydreamer-riri.me',
+  site: 'https://Daydreamer-riri.me',
   integrations: [UnoCss(), react(), sitemap(), prefetch({ throttle: 3 })],
   markdown: {
     rehypePlugins: [

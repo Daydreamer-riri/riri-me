@@ -1,7 +1,7 @@
 /** basic default site info */
-export const site = 'https://daydreamer-riri.me'
-export const siteShort = 'https://daydreamer-riri.me'
-export const title = 'riri-me'
+export const site = 'https://Daydreamer-riri.me'
+export const siteShort = 'https://Daydreamer-riri.me'
+export const title = 'Riri.me'
 export const keywords = 'Riri'
 export const description = 'Riri\'s Personal Website'
 export const author = 'Riri'
