@@ -1,7 +1,7 @@
 ---
 author: Riri
 pubDatetime: 2023-03-07T05:00:11.918Z
-title: VS Code 的颜色方案
+title: 获取 VS Code 的颜色方案
 featured: true
 tags:
   - release
