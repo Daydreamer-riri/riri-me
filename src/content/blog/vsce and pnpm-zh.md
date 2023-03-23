@@ -8,7 +8,7 @@ tags:
 description: Compatibility issues between vsce and pnpm
 ---
 
-在我准备发布 VS Code 扩展时，运行 `vsce` 出现了依赖问题。
+在我准备发布 VS Code 扩展时，`vsce` 出现了依赖问题。
 
 类似于这样：
 

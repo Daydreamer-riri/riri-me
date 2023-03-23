@@ -8,7 +8,7 @@ tags:
 description: Compatibility issues between vsce and pnpm
 ---
 
-When I'm ready to release the VS Code extension, running `vsce` has a dependency issue.
+When I was preparing to publish my VS Code extension, `vsce` encountered a dependency issue.
 
 Like this:
 
