@@ -37,7 +37,7 @@ const projects: Projects = {
       {
         name: 'Iconfont reminder',
         desc: 'The preview of the iconfont icon component for VS Code.',
-        iconClass: 'i-carbon:application',
+        iconClass: 'i-uil:icons',
         link: 'https://github.com/Daydreamer-riri/vscode-ext-iconfont-reminder',
       },
     ],
