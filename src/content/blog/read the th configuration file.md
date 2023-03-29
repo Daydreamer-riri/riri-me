@@ -1,6 +1,6 @@
 ---
 author: Riri
-pubDatetime: 2023-03-29T11:16:19.364Z
+pubDatetime: 2023-03-29T11:16:20.363Z
 title: Read the ts configuration file
 featured: true
 tags:
