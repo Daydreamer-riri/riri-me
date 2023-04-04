@@ -35,7 +35,7 @@ npm ERR! missing: p-event@^4.0.0, required by got@10.5.5
 ```sh
 tsup src/extension.ts --format cjs --external vscode --no-shims
 ```
-1. 在调用 `vsce` 时使用 `--no-dependencies` 跳过 vsce 的打包过程，使其无需寻找依赖
+2. 在调用 `vsce` 时使用 `--no-dependencies` 跳过 vsce 的打包过程，使其无需寻找依赖
 ```sh
 npx @vscode/vsce publish --no-dependencies
 ```
