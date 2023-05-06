@@ -28,7 +28,7 @@ export async function loadPlugin(plugin: Plugin): Promise<Plugin> {
 
 So, it can complement almost any rule! And You can even be prompted by JsDoc what the rule does.
 
-<img alt="preview" src="/blog/type-eslint-config/img.png">
+![preview](../../assets/blog/type-eslint-config/preview.png)
 
 As you can see, even a rule's options can be complemented!
 

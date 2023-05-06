@@ -6,12 +6,7 @@ export const getSortedPosts = (posts: CollectionEntry<'blog'>[]) =>
     .filter(({ data }) => !data.draft)
     .sort(
       (a, b) => {
-        const sub
-          = Math.floor(new Date(b.data.pubDatetime).getTime() / 1000)
-          - Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
-        if (sub === 0)
-          return -1
-        return sub
+        return dayjs(a.data.pubDatetime).isBefore(dayjs(b.data.pubDatetime)) ? 1 : -1
       },
     )
 
@@ -19,7 +14,8 @@ export function getYearToPostMap(posts: CollectionEntry<'blog'>[]) {
   const map = {} as Record<string, CollectionEntry<'blog'>[]>
   for (const post of posts) {
     const { pubDatetime } = post.data
-    const year = pubDatetime.getFullYear()
+    const date = dayjs(pubDatetime)
+    const year = date.year()
     map[year] ? map[year].push(post) : (map[year] = [post])
   }
   return map
