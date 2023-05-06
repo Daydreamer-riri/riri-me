@@ -24,7 +24,7 @@ const { config } = await loadConfig({})
 
 It will read the configuration file in the root directory by default.
 
-However, in my scenario, I need a more flexible way to get the default export of a certain TypeScript file. Therefore, I used [jiti](https://github.com/unjs/jiti), which is relied on by `c12`.
+However, in my scenario, I need a more flexible way to get the default export of a certain TypeScript file. Therefore, I used [jiti](https://github.com/unjs/jiti), which is a dependency of `c12`.
 ```ts
 const config: Record<string, string> = await jiti(configPath, {
   interopDefault: true,
