@@ -37,7 +37,7 @@ const projectsTypes = Object.keys(projects)
                   <div class={`${item?.icon ? '' : item?.iconClass ?? 'i-carbon-unknown'} w-1.2em h-1.2em`}>
                     {item?.icon && <item.icon />}
                   </div>
-                  <span>{item.name}</span>
+                  <span class="ml-1">{item.name}</span>
                 </h5>
                 <p class="m0! flex-1">{item.desc}</p>
               </a>

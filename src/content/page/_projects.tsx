@@ -48,6 +48,12 @@ const projects: Projects = {
         iconClass: 'i-simple-icons:eslint',
         link: 'https://github.com/Daydreamer-riri/eslint-config',
       },
+      {
+        name: 'pwsh-profile',
+        desc: 'My pwsh profile',
+        iconClass: 'i-simple-icons:powershell',
+        link: 'https://github.com/Daydreamer-riri/pwsh-profile',
+      },
     ],
     // 'Toys': [
     //   {
