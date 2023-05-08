@@ -19,10 +19,20 @@ const projectsTypes = Object.keys(projects)
 
 <ul class="pt-4">
   {
-    projectsTypes.map(title => (
+    projectsTypes.map((title, index) => (
       <Fragment>
-        <div class="my-3 text-1.4em op-40 font-600">{title}</div>
-        <li class="wrap grid grid-cols-1 sm:grid-cols-2 py-2 gap-2 pl-0! before:w-0!">
+        <div
+          class="my-3 text-1.4em op-40 font-600"
+          slide-enter
+          style={`--enter-stage: ${index}`}
+        >
+        {title}
+        </div>
+        <li
+          class="wrap grid grid-cols-1 sm:grid-cols-2 py-2 gap-2 pl-0! before:w-0!"
+          slide-enter
+          style={`--enter-stage: ${index}`}
+        >
           {projects[title].map(item => (
             <article
               class="item-container"

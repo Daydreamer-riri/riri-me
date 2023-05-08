@@ -20,17 +20,17 @@ const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
   <Default>
-    <div class="prose m-auto mb-space">
+    <div class="prose m-auto mb-space slide-enter">
       <h1>{title}</h1>
       <p class="op-50">
         {formatDate(pubDatetime)} · {getReadingTime(post.body)}
       </p>
     </div>
 
-    <article class="prose post m-auto">
+    <article class="prose post m-auto slide-enter animate-delay-200!">
       <Content />
     </article>
-    <div class="prose m-auto my-8">
+    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
       <span font-mono op-50>{'> '}</span>
       <LinkButton
         href="/posts"

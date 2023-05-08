@@ -13,11 +13,11 @@ const {
   title = SITE.title,
   author = SITE.author,
   description = SITE.description,
-  ogImg = SITE.ogImg,
+  ogImage = SITE.ogImg,
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL(ogImg || SITE.ogImg, Astro.url.origin)
+const socialImageURL = new URL(ogImage || SITE.ogImg, Astro.url.origin)
   .href
 
 const fallbackImageURL = new URL(SITE.ogImg, Astro.url.origin).href

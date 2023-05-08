@@ -31,9 +31,12 @@ const yearToPostMap = getYearToPostMap(posts)
       {
         Object.keys(yearToPostMap)
           .reverse()
-          .map(year => (
+          .map((year, index) => (
             <Fragment>
-              <div class="relative h-20 pointer-events-none">
+              <div
+                class="relative h-20 pointer-events-none slide-enter animate-duration-2000!"
+                style={`--enter-stage: ${index}`}
+              >
                 <span
                   class="text-8em op-10 absolute left--3rem top--2rem font-bold"
                   style="line-height: 1.75;"
@@ -42,30 +45,35 @@ const yearToPostMap = getYearToPostMap(posts)
                 </span>
               </div>
               {yearToPostMap[year].map(({ data, body, id }) => (
-                <a
-                  rel="prefetch"
-                  href={`/posts/${slugify(data)}`}
-                  class="item font-normal mb-6 mt-2 no-underline"
+                <div
+                  class="slide-enter"
+                  style={`--enter-stage: ${index}`}
                 >
-                  <li class="mb-2!">
-                    {id.endsWith('-zh.md') && (
-                      <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2">中文</span>
-                    )}
-                    <span class="text-lg leading-1.2rem">{data.title}</span>
-                    <time
-                      class="op-50 text-sm block"
-                      datetime={dayjs(data.pubDatetime).toISOString()}
-                    >
-                      {formatDate(data.pubDatetime)} · {getReadingTime(body)}
-                    </time>
-                  </li>
-                </a>
+                  <a
+                    rel="prefetch"
+                    href={`/posts/${slugify(data)}`}
+                    class="item font-normal mb-6 mt-2 no-underline"
+                  >
+                    <li class="mb-2!">
+                      {id.endsWith('-zh.md') && (
+                        <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2">中文</span>
+                      )}
+                      <span class="text-lg leading-1.2rem">{data.title}</span>
+                      <time
+                        class="op-50 text-sm block"
+                        datetime={dayjs(data.pubDatetime).toISOString()}
+                      >
+                        {formatDate(data.pubDatetime)} · {getReadingTime(body)}
+                      </time>
+                    </li>
+                  </a>
+                </div>
               ))}
             </Fragment>
           ))
       }
     </ul>
-    <div class="prose m-auto my-8">
+    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
       <br />
       <span font-mono op-50>{'> '}</span>
       <LinkButton
