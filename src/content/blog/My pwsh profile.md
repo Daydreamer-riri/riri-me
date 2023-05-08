@@ -17,7 +17,7 @@ It has the following features:
 - Support path completion based on `PSReadLine`, and support command completion for pnpm, winget, and git.
 - Beautiful shell powered by Oh My Posh.
 - Short aliases to better use @antfu/ni.
-- `z` for path jump; `Terminal-Icons` makes `ls` clear at a glance.
+- `z` for path jump; `Terminal-Icons` makes items clear at a glance.
 
 You can follow the [README](https://github.com/Daydreamer-riri/pwsh-profile/#readme) to use this profile.
 
