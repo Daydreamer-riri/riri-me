@@ -1,11 +1,11 @@
 ---
 author: Riri
 pubDatetime: 2023-03-29T11:16:20.363Z
-title: Read the ts configuration file
+title: Read the configuration file written in TypeScript
 featured: true
 tags:
   - release
-description: Read the ts configuration file.
+description: Read the configuration file written in TypeScript
 ---
 
 Sometimes you may want to read some configurations in your npm package or vscode extension. If the user's project is in JavaScript, it is not difficult to achieve this by using dynamic imports:

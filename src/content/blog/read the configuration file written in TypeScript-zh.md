@@ -1,7 +1,7 @@
 ---
 author: Riri
 pubDatetime: 2023-03-29T11:16:19.363Z
-title: 读取ts配置文件
+title: 读取用TypeScript编写的配置文件
 featured: true
 tags:
   - release
