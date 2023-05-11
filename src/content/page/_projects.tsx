@@ -23,7 +23,7 @@ const projects: Projects = {
         name: 'img-shadower',
         desc: 'Add rounded corners and shadows to the image.',
         iconClass: 'i-fluent:image-shadow-24-regular',
-        link: 'https://cz-git.qbb.sh/guide/introduction',
+        link: 'https://github.com/Daydreamer-riri/img-shadower',
       },
     ],
     'VS Code Extensions:': [
