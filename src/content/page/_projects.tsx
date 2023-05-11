@@ -18,21 +18,14 @@ const projects: Projects = {
   title: 'Projects - Riri',
   desc: 'Riri\'s  Project List',
   projects: {
-    // 'CLI': [
-    //   {
-    //     name: 'ca-git',
-    //     desc: 'Commitizen CLI adapter',
-    //     iconClass: 'i-carbon-plug',
-    //     // icon: () => <i>1234</i>,
-    //     link: 'https://cz-git.qbb.sh/guide/introduction',
-    //   },
-    //   {
-    //     name: 'czg',
-    //     desc: 'Commitizen CLI alternative',
-    //     iconClass: 'i-carbon:terminal',
-    //     link: 'https://cz-git.qbb.sh/cli/',
-    //   },
-    // ],
+    'CLI': [
+      {
+        name: 'img-shadower',
+        desc: 'Add rounded corners and shadows to the image.',
+        iconClass: 'i-fluent:image-shadow-24-regular',
+        link: 'https://cz-git.qbb.sh/guide/introduction',
+      },
+    ],
     'VS Code Extensions:': [
       {
         name: 'Iconfont reminder',
