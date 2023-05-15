@@ -23,6 +23,6 @@ You can follow the [README](https://github.com/Daydreamer-riri/pwsh-profile/#rea
 
 #### preview
 
-![preview](../../assets/blog/my-pwsh-profile/preview.png)
+![preview](../../assets/blog/my-pwsh-profile/preview1.png)
 
-![pnpm completion](../../assets/blog/my-pwsh-profile/pnpm-completion.png)
+![preview2](../../assets/blog/my-pwsh-profile/preview2.png)
