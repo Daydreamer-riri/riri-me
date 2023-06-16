@@ -33,6 +33,12 @@ const projects: Projects = {
         iconClass: 'i-uil:icons',
         link: 'https://github.com/Daydreamer-riri/vscode-ext-iconfont-reminder',
       },
+      {
+        name: 'packages',
+        desc: 'Helps JavaScript developers managing dependencies with package.json.',
+        iconClass: 'i-noto-v1:package',
+        link: 'https://github.com/Daydreamer-riri/vscode-ext-packages',
+      },
     ],
     'Configurations': [
       {
