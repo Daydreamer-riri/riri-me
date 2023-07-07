@@ -18,7 +18,8 @@
         "react/jsx-key": "off",
         "react/no-unknown-property": "off",
         "react/jsx-no-undef": "off",
-        "react/jsx-indent": "off"
+        "react/jsx-indent": "off",
+        "react/jsx-max-props-per-line": "off"
       }
     }
     // ...

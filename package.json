@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/prefetch": "^0.2.1",
     "@astrojs/rss": "^2.3.2",
-    "@unocss/reset": "^0.51.5",
+    "@unocss/reset": "0.53.4",
     "ahooks": "^3.7.6",
     "astro": "^2.3.0",
     "dayjs": "^1.11.7",
@@ -24,21 +24,20 @@
     "medium-zoom": "^1.0.8",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
-    "rehype-toc": "^3.0.2",
-    "satori": "^0.1.2"
+    "rehype-toc": "^3.0.2"
   },
   "devDependencies": {
     "@astrojs/react": "^2.1.1",
     "@astrojs/sitemap": "^1.2.2",
     "@giscus/react": "^2.2.8",
     "@iconify/json": "^2.2.54",
-    "@ririd/eslint-config": "^0.4.2",
+    "@ririd/eslint-config": "0.5.1",
     "@types/react": "^18.0.38",
     "eslint": "^8.39.0",
-    "eslint-plugin-astro": "^0.24.0",
+    "eslint-plugin-astro": "0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "unocss": "^0.51.5",
-    "unplugin-icons": "^0.15.3"
+    "unocss": "0.53.4",
+    "unplugin-icons": "0.16.3"
   }
 }
