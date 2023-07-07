@@ -1,12 +1,12 @@
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import { description, site, title } from '@meta'
+import { description, site } from '@meta'
 import slugify from '@utils/slugify'
 
 export async function get() {
   const posts = await getCollection('blog', ({ data }) => !data.draft)
   return rss({
-    title,
+    title: 'Daydreamer Riri',
     description,
     site,
     items: posts.map(({ data }) => ({
