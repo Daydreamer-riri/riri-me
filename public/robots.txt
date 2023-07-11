@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daydreamer-riri.me/sitemap-index.xml
