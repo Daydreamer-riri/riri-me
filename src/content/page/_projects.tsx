@@ -18,6 +18,14 @@ const projects: Projects = {
   title: 'Projects - Riri',
   desc: 'Riri\'s  Project List',
   projects: {
+    'Vite Ecosystem': [
+      {
+        name: 'vite-react-ssg',
+        desc: 'Static-site generation for React on Vite.',
+        iconClass: 'i-carbon-printer',
+        link: 'https://github.com/Daydreamer-riri/vite-react-ssg',
+      },
+    ],
     'CLI': [
       {
         name: 'img-shadower',
