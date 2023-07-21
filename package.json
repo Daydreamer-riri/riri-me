@@ -2,7 +2,7 @@
   "name": "riri-me",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@8.3.1",
+  "packageManager": "pnpm@8.6.9",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,11 +13,11 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@astrojs/prefetch": "^0.2.1",
+    "@astrojs/prefetch": "^0.3.0",
     "@astrojs/rss": "^2.4.3",
     "@unocss/reset": "0.53.4",
     "ahooks": "^3.7.6",
-    "astro": "~2.8.0",
+    "astro": "2.9.0",
     "dayjs": "^1.11.8",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^2.1.1",
-    "@astrojs/sitemap": "1.3.3",
+    "@astrojs/sitemap": "2.0.1",
     "@giscus/react": "^2.2.8",
     "@iconify/json": "^2.2.54",
     "@ririd/eslint-config": "0.5.1",
