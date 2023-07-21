@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import * as SITE from '@/meta'
 import '../styles/main.css'
 
@@ -27,7 +26,7 @@ const fallbackImageURL = new URL(SITE.ogImg, Astro.url.origin).href
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <meta name="baidu-site-verification" content="codeva-BMnaxCIwHu" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta charset="UTF-8" />
@@ -70,7 +69,7 @@ const fallbackImageURL = new URL(SITE.ogImg, Astro.url.origin).href
     <!-- <meta name="view-transition" content="same-origin" /> -->
     <script is:inline src="/scripts/toggle-theme.js"></script>
   </head>
-  <body transition:animate="morph" class="font-sans text-gray-700 dark:text-gray-200 of-y-scroll">
+  <body class="font-sans text-gray-700 dark:text-gray-200 of-y-scroll">
     <slot />
   </body>
 </html>
