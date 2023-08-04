@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/layout.astro'
+import Default from '@layouts/default.astro'
+import LinkButton from '@components/LinkButton.astro';
+---
+
+<Layout>
+  <Default>
+    <div class="prose m-auto slide-enter">
+      <h1>404</h1>
+      <article slide-enter animate-delay-200>
+        Welcome to see!
+      </article>
+    </div>
+    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
+      <br />
+      <span font-mono op-50>{'> '}</span>
+      <LinkButton
+        href="/"
+        className="op-50 font-mono hover:op-75"
+      >
+        cd ..
+      </LinkButton>
+    </div>
+  </Default>
+</Layout>
