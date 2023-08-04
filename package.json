@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/prefetch": "^0.3.0",
     "@astrojs/rss": "^2.4.3",
-    "@unocss/reset": "0.53.4",
+    "@unocss/reset": "0.54.1",
     "ahooks": "^3.7.6",
     "astro": "2.9.0",
     "dayjs": "^1.11.8",
@@ -31,13 +31,13 @@
     "@astrojs/sitemap": "2.0.1",
     "@giscus/react": "^2.2.8",
     "@iconify/json": "^2.2.54",
-    "@ririd/eslint-config": "0.5.1",
+    "@ririd/eslint-config": "0.6.0",
     "@types/react": "^18.0.38",
-    "eslint": "^8.39.0",
-    "eslint-plugin-astro": "0.27.2",
+    "eslint": "^8.46.0",
+    "eslint-plugin-astro": "0.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "unocss": "0.53.4",
+    "unocss": "0.54.1",
     "unplugin-icons": "0.16.3"
   }
 }
