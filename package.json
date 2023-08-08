@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.3.0",
     "@astrojs/rss": "^2.4.3",
     "@unocss/reset": "0.54.1",
@@ -30,7 +31,7 @@
     "@astrojs/react": "^2.1.1",
     "@astrojs/sitemap": "2.0.1",
     "@giscus/react": "^2.2.8",
-    "@iconify/json": "^2.2.54",
+    "@iconify/json": "^2.2.99",
     "@ririd/eslint-config": "0.6.0",
     "@types/react": "^18.0.38",
     "eslint": "^8.46.0",

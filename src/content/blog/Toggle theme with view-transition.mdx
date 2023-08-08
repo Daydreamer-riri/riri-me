@@ -1,0 +1,117 @@
+---
+author: Riri
+pubDatetime: 2023-08-09 00:00
+title: Toggle theme with view-transition
+featured: true
+tags:
+  - release
+description: Implement an aesthetically pleasing theme switching effect using view-transition.
+---
+
+import ThemeToggler from '../../components/ThemeToggler.tsx'
+
+I recently discovered a fun and simple little effect. 
+You can preview this effect by clicking on the icon below or the switch theme button in the top right side.
+
+<div style="padding-left: 44px; font-size: 32px;">
+  <ThemeToggler client:load />
+</div>
+
+> This requires your chrome version >= 111.
+
+This uses the current experimental api: `View Transitions API`. 
+Using this, we can simply implement such a beautiful theme switching effect.
+
+## How `View Transitions API` work?
+
+> The following quote is from mdn:
+
+1. When document.startViewTransition() is called, the API takes a screenshot of the current page.
+2. Next, the callback passed to is invoked, in this case , 
+which causes the DOM to change. When the callback has run successfully, the ViewTransition.updateCallbackDone promise fulfills, allowing you to respond to the DOM updating. startViewTransition()displayNewImage
+3. The API captures the new state of the page as a live representation.
+4. The API constructs a pseudo-element tree with the following structure:
+  ```
+  ::view-transition
+  └─ ::view-transition-group(root)
+    └─ ::view-transition-image-pair(root)
+        ├─ ::view-transition-old(root)
+        └─ ::view-transition-new(root)
+  ```
+    - `::view-transition` is the root of view transitions overlay, which contains all view transitions and sits over the top of all other page content.
+    - `::view-transition-old` is the screenshot of the old page view, and ::view-transition-new is the live representation of the new page view. 
+    Both of these render as replaced content, in the same manner as an `<img>` or `<video>`, meaning that they can be styled with handy properties like object-fit and object-position.
+  
+<p style="padding-left: 1.2rem;">When the transition animation is about to run, the ViewTransition.ready promise fulfills, 
+allowing you to respond by running a custom JavaScript animation instead of the default, for example.</p>
+
+5. The old page view animates from opacity 1 to 0, while the new view animates from 0 to 1, which is what creates the default cross-fade.opacity
+6. When the transition animation has reached its end state, the ViewTransition.finished promise fulfills, allowing you to respond.
+
+That is, when calling `document.startViewTransition`, we can then manipulate the `::view-transition-old(root)` pseudo-element to achieve various effects.
+
+## Preparation work
+
+`::view-transitionon-old(root)` and `::view-transition-new(root)` will have a fade-in/out animation by default. 
+We need to turn it off for this theme switching effect.
+
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+```
+
+## Document.startViewTransition
+
+Then, we can write our theme toggle logic.
+
+```js
+function toggleDark(event) {
+  // Get the mouse click position
+  const x = event.clientX
+  const y = event.clientY
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
+  )
+  // @ts-expect-error: Transition API
+  const transition = document.startViewTransition(() => {
+    toggle()
+  })
+  transition.ready
+    .then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: isDark
+            ? [...clipPath].reverse()
+            : clipPath,
+        },
+        {
+          duration: 300,
+          easing: 'ease-out',
+          pseudoElement: isDark
+            ? '::view-transition-old(root)'
+            : '::view-transition-new(root)',
+        },
+      )
+    })
+  
+  function toggle() {
+    // ... your own switch theme function
+  }
+}
+```
+
+As you can see, the entire logic is very simple and clear, and the `View Transitions API` is very powerful!
+
+You can also achieve this effect in other ways, such as with pure CSS.
+
+This [demo site](https://http203-playlist.netlify.app/) also has a lot of awesome examples of this api, you should check it out!
+
+Hope you enjoy the article.
