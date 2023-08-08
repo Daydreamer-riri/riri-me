@@ -38,9 +38,11 @@ window.onload = () => {
   reflectPreference()
 
   // now this script can find and listen for clicks on the control
-  document.querySelector('#theme-btn')?.addEventListener('click', () => {
-    themeValue = themeValue === 'light' ? 'dark' : 'light'
-    setPreference()
+  document.querySelector('#theme-btn')?.addEventListener('click', (event) => {
+    toggleDark(event, () => {
+      themeValue = themeValue === 'light' ? 'dark' : 'light'
+      setPreference()
+    })
   })
 }
 
@@ -51,3 +53,52 @@ window
     themeValue = isDark ? 'dark' : 'light'
     setPreference()
   })
+
+  /**
+ * Credit to [@hooray](https://github.com/hooray)
+ * @see https://github.com/vuejs/vitepress/pull/2347
+ */
+function toggleDark(event, callback) {
+  const isDark = themeValue === 'dark'
+  
+  // @ts-expect-error experimental API
+  const isAppearanceTransition = document.startViewTransition
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!isAppearanceTransition) {
+    callback()
+    return
+  }
+
+  const x = event.clientX
+  const y = event.clientY
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
+  )
+  // @ts-expect-error: Transition API
+  const transition = document.startViewTransition(() => {
+    callback()
+  })
+  transition.ready
+    .then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: isDark
+            ? [...clipPath].reverse()
+            : clipPath,
+        },
+        {
+          duration: 300,
+          easing: 'ease-out',
+          pseudoElement: isDark
+            ? '::view-transition-old(root)'
+            : '::view-transition-new(root)',
+        },
+      )
+    })
+}
