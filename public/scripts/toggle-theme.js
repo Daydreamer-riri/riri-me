@@ -39,10 +39,7 @@ window.onload = () => {
 
   // now this script can find and listen for clicks on the control
   document.querySelector('#theme-btn')?.addEventListener('click', (event) => {
-    toggleDark(event, () => {
-      themeValue = themeValue === 'light' ? 'dark' : 'light'
-      setPreference()
-    })
+    toggleDark(event)
   })
 }
 
@@ -58,15 +55,16 @@ window
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347
  */
-function toggleDark(event, callback) {
+function toggleDark(event) {
   const isDark = themeValue === 'dark'
   
   // @ts-expect-error experimental API
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    && !!event
 
   if (!isAppearanceTransition) {
-    callback()
+    toggle()
     return
   }
 
@@ -78,7 +76,7 @@ function toggleDark(event, callback) {
   )
   // @ts-expect-error: Transition API
   const transition = document.startViewTransition(() => {
-    callback()
+    toggle()
   })
   transition.ready
     .then(() => {
@@ -101,4 +99,9 @@ function toggleDark(event, callback) {
         },
       )
     })
+  
+  function toggle() {
+    themeValue = themeValue === 'light' ? 'dark' : 'light'
+    setPreference()
+  }
 }

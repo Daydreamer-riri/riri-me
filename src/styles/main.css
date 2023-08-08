@@ -20,6 +20,10 @@ html.dark {
 }
 
 * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
   scrollbar-color: var(--c-scrollbar) var(--c-scrollbar-bg);
 }
 
