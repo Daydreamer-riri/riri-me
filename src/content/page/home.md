@@ -1,5 +1,5 @@
 
-Hi, I'm Riri, a front-end developer. Currently working at Ctrip.
+Hi, I'm Riri, a front-end developer. Currently working at Trip.com.
 
 Here is my blog, which will currently record some of the problems I encountered as well as some of my learning experiences.
 
