@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import Layout from '@layouts/layout.astro'
 import Default from '@layouts/default.astro'
 import avatar from '@assets/avatar.jpg'
+import InsCard from '@components/InsCard/index.astro'
 import * as Home from '../content/page/home.md'
 ---
 
@@ -13,6 +14,8 @@ import * as Home from '../content/page/home.md'
       <article slide-enter animate-delay-200>
         <Home.Content />
       </article>
+      <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
+      <InsCard />
     </div>
   </Default>
 </Layout>

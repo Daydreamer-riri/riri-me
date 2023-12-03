@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets'
+import { fetchBentoIns } from '../../utils/fetchData'
+import InsIcon from './insIcon.astro'
+
+const ins = await fetchBentoIns()
+---
+<div class="ins-card p-6 rd-6 border-c-border b-1 b-op-10 max-w-380px">
+  <div class="flex">
+    <div class="flex-col flex flex-items-start flex-1">
+      <div w-40px h-40px>
+        <InsIcon />
+      </div>
+      <div mt-3 flex-1>
+        <div text-sm>
+          @{ins.data.userName}
+        </div>
+      </div>
+      <a role="button" href={ins.url} class="no-prose rd-lg px-14px py-7px text-3 lh-4 inline-block bg-[#4093EF] text-center font-bold text-white hover:bg-[#2875CA] active:bg-[#3383DC] active:text-white/80 max-[389px]:!hidden">
+        Follow
+      </a>
+    </div>
+    <div class="ml-6 aspect-square gap-2 grid grid-cols-2 grid-rows-2">
+      {ins.data.posts.slice(0, 4).map(item => (
+        <a href={item.url} class="no-prose hover:brightness-80 transition-filter">
+          <Image
+            src={item.thumbnail}
+            alt="thumbnail"
+            width={150}
+            height={150}
+            class="w-60px h-60px m-0! rd-2 pointer-events-none"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+<style scoped>
+  .ins-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+</style>

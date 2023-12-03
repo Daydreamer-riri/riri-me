@@ -25,3 +25,6 @@ export const giscusConfig = {
   category: 'Announcements',
   categoryId: 'DIC_kwDOJIHT8c4CU1Yw',
 }
+
+/** bento */
+export const bentoIns = 'https://api.bento.me/v1/urlrichdata/https%3A%2F%2Finstagram.com%2Fdaydreamer_riri'
