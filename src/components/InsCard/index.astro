@@ -25,21 +25,11 @@ const ins = await fetchBentoIns()
         <a href={item.url} class="no-prose hover:brightness-80 transition-filter relative rd-2 bg-#eee">
           <Image
             src={item.thumbnail}
-            width={10}
-            height={10}
-            class="w-60px h-60px m-0! rd-2 pointer-events-none absolute top-0 left-0 transition-opacity thumbnail-placeholder"
-            alt="thumbnail"
-            id={`thumbnail-placeholder-${item.thumbnail}`}
-            fetchpriority="high"
-            quality={10}
-          />
-          <Image
-            src={item.thumbnail}
             alt="thumbnail"
             width={150}
             height={150}
             widths={[20, 150]}
-            class="w-60px h-60px m-0! rd-2 pointer-events-none thumbnail"
+            class="w-60px h-60px m-0! rd-2 pointer-events-none transition-opacity op-0 thumbnail"
             data-src={item.thumbnail}
             id={`thumbnail-${item.thumbnail}`}
             fetchpriority="low"
@@ -53,8 +43,7 @@ const ins = await fetchBentoIns()
   const thumbnails = document.querySelectorAll < HTMLImageElement > ('.thumbnail')
   thumbnails.forEach((thumbnail) => {
     thumbnail.addEventListener('load', () => {
-      const placeholder = document.getElementById(`thumbnail-placeholder-${thumbnail.dataset.src}`)
-      placeholder!.style.opacity = '0'
+      thumbnail.style.opacity = '1'
     })
   })
 </script>
