@@ -25,6 +25,11 @@ export default defineConfig({
     sitemap(),
     prefetch({ throttle: 3 }),
   ],
+  image: {
+    remotePatterns: [
+      { protocol: 'https' },
+    ],
+  },
   markdown: {
     rehypePlugins: [
       rehypeSlug,
