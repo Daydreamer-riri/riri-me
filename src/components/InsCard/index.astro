@@ -29,7 +29,7 @@ const ins = await fetchBentoIns()
             width={150}
             height={150}
             widths={[20, 150]}
-            class="w-60px h-60px m-0! rd-2 pointer-events-none transition-opacity op-0 thumbnail"
+            class="w-60px h-60px m-0! rd-2 pointer-events-none thumbnail"
             data-src={item.thumbnail}
             id={`thumbnail-${item.thumbnail}`}
             fetchpriority="low"
@@ -39,16 +39,6 @@ const ins = await fetchBentoIns()
     </div>
   </div>
 </div>
-<script>
-const thumbnails = document.querySelectorAll < HTMLImageElement > ('.thumbnail')
-thumbnails.forEach((thumbnail) => {
-  thumbnail.addEventListener('load', () => {
-    thumbnail.style.opacity = '1'
-  })
-  if (thumbnail.complete)
-    thumbnail.style.opacity = '1'
-})
-</script>
 <style scoped>
   .ins-card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
