@@ -40,12 +40,14 @@ const ins = await fetchBentoIns()
   </div>
 </div>
 <script>
-  const thumbnails = document.querySelectorAll < HTMLImageElement > ('.thumbnail')
-  thumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener('load', () => {
-      thumbnail.style.opacity = '1'
-    })
+const thumbnails = document.querySelectorAll < HTMLImageElement > ('.thumbnail')
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener('load', () => {
+    thumbnail.style.opacity = '1'
   })
+  if (thumbnail.complete)
+    thumbnail.style.opacity = '1'
+})
 </script>
 <style scoped>
   .ins-card {
