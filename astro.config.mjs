@@ -8,6 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
+import lit from '@astrojs/lit'
 
 const headerAnchor = {
   type: 'text',
@@ -18,10 +19,13 @@ const headerAnchor = {
 export default defineConfig({
   site: 'https://Daydreamer-riri.me',
   integrations: [
-    UnoCss({ injectReset: true }),
+    UnoCss({
+      injectReset: true,
+    }),
     mdx(),
     react(),
     sitemap(),
+    lit(),
   ],
   prefetch: true,
   markdown: {
@@ -29,14 +33,13 @@ export default defineConfig({
       rehypeSlug,
       // @ts-expect-error rehypeToc has type error
       rehypeToc,
-      [
-        rehypeAutoLindHeadings,
-        {
-          behavior: 'append',
-          properties: { class: 'header-anchor' },
-          content: headerAnchor,
+      [rehypeAutoLindHeadings, {
+        behavior: 'append',
+        properties: {
+          class: 'header-anchor',
         },
-      ],
+        content: headerAnchor,
+      }],
     ],
     shikiConfig: {
       wrap: true,
@@ -44,10 +47,8 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [
-      Icons({
-        compiler: 'astro',
-      }),
-    ],
+    plugins: [Icons({
+      compiler: 'astro',
+    })],
   },
 })
