@@ -15,22 +15,22 @@ VS Code extension 的 api 文档对我来说不是太清晰，在一开始我并
 我从 antfu 的博客中发现了这样的方法：
 
 > Since most of the themes follow the conversions of having Light or Dark in their names. Then we can have:
-> 
-> ``` js
+>
+> ```js
 > import { workspace } from 'vscode'
-> 
+>
 > export function isDarkTheme() {
 >   const theme = workspace.getConfiguration()
 >     .get('workbench.colorTheme', '')
-> 
+>
 >   // must be dark
 >   if (theme.match(/dark|black/i) != null)
 >     return true
-> 
+>
 >   // must be light
 >   if (theme.match(/light/i) != null)
 >     return false
-> 
+>
 >   // IDK, maybe dark
 >   return true
 > }

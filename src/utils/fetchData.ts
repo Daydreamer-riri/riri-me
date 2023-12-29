@@ -3,7 +3,7 @@ import { bentoIns } from '../meta'
 interface InsData {
   url: string
   data: {
-    posts: { url: string; thumbnail: string }[]
+    posts: { url: string, thumbnail: string }[]
     profile: string
     numPosts: number
     userName: string

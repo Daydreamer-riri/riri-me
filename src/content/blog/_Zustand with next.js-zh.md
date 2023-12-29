@@ -13,6 +13,7 @@ description: zustand next.js
 这个过程中遇到这个问题：在 next.js 中，客户端需要恢复服务端的状态。
 
 Zustand 的基础写法是：
+
 ```ts
 import { create } from 'zustand'
 
@@ -41,8 +42,7 @@ store 的初始化需要在一个可以获取到 `window.__NEXT_DATA__?.props.pa
 ```ts
 import { createStore, useStore as useZustandStore } from 'zustand'
 
-export const createUseStore = <S, A = {}>() => {
-
+export function createUseStore<S, A = object>() {
   const useStore = <T>(
     selector: (state: S & Actions<S> & A) => T,
     equalityFn?: 'shallow' | ((left: T, right: T) => boolean),
@@ -71,7 +71,7 @@ export function initializeStore(initialState, extraAction) {
   const generateActions = (state, set, get) => {
     return Object.keys(state).reduce((total, key) => {
       const actionName = `set${capitalize(key)}`
-      total[actionName] = (value) => {
+      total[actionName] = value => {
         typeof value === 'function'
           ? set({ [key]: value(get()[key]) })
           : set({ [key]: value })

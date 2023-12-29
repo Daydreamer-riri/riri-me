@@ -31,11 +31,15 @@ npm ERR! missing: p-event@^4.0.0, required by got@10.5.5
 这大概是因为 `pnpm` 的 symlinks 与 `vsce` 不兼容，如果使用 `yarn` 进行依赖安装就不会遇到类似的问题。
 
 我更改了我的 workflows 来解决这个问题：
+
 1. 不再使用 `vsce` 进行打包，转而使用 `tsup`
+
 ```sh
 tsup src/extension.ts --format cjs --external vscode --no-shims
 ```
+
 2. 在调用 `vsce` 时使用 `--no-dependencies` 跳过 vsce 的打包过程，使其无需寻找依赖
+
 ```sh
 npx @vscode/vsce publish --no-dependencies
 ```

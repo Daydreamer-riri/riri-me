@@ -16,19 +16,19 @@ const { posts } = Astro.props
 const yearToPostMap = getYearToPostMap(posts)
 ---
 
-<Layout title={`posts | ${title}`}>
-  <Main pageTitle="Blog">
-    <ul>
-      {
+  <Layout title={`posts | ${title}`}>
+    <Main pageTitle="Blog">
+      <ul>
+        {
         !posts.length
           ? (
-          <div text-center op-80>
-            nothing here yet
-          </div>
+            <div text-center op-80>
+              nothing here yet
+            </div>
             )
           : null
       }
-      {
+        {
         Object.keys(yearToPostMap)
           .reverse()
           .map((year, index) => (
@@ -72,21 +72,21 @@ const yearToPostMap = getYearToPostMap(posts)
             </Fragment>
           ))
       }
-    </ul>
-    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
-      <br />
-      <span font-mono op-50>{'> '}</span>
-      <LinkButton
-        href="/"
-        className="op-50 font-mono hover:op-75"
-      >
-        cd ..
-      </LinkButton>
-    </div>
-  </Main>
-</Layout>
+      </ul>
+      <div class="prose m-auto my-8 slide-enter animate-delay-400!">
+        <br />
+        <span font-mono op-50>{'> '}</span>
+        <LinkButton
+          href="/"
+          className="op-50 font-mono hover:op-75"
+        >
+          cd ..
+        </LinkButton>
+      </div>
+    </Main>
+  </Layout>
 
-<style>
+    <style>
   a.item {
     --at-apply: op-60 transition-opacity;
     transition-duration: 0.2s;
@@ -94,4 +94,4 @@ const yearToPostMap = getYearToPostMap(posts)
   a.item:hover {
     opacity: 1;
   }
-</style>
+    </style>

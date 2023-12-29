@@ -4,11 +4,11 @@
   --at-apply: max-w-content text-c-fg text-4 leading-1.9em;
 }
 
-.prose> :first-child {
+.prose > :first-child {
   --at-apply: mt-0;
 }
 
-.prose> :last-child {
+.prose > :last-child {
   --at-apply: mb-0;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .prose s {
-  --at-apply: c-inherit op-60 decoration-1 dark:decoration--1;
+  --at-apply: c-inherit op-60 decoration-1 dark: decoration--1;
 }
 
 .prose mark {
@@ -48,13 +48,19 @@
 }
 
 .prose kbd {
-  --at-apply: text-sm py-0.4 px-1.2 mx-0.6 bg-gradient-to-br from-gray-200 to-slate-50;
-  box-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, .4);
+  --at-apply: text-sm py-0.4 px-1.2 mx-0.6 bg-gradient-to-br from-gray-200
+    to-slate-50;
+  box-shadow:
+    inset 0 -2px 0 0 #cdcde6,
+    inset 0 0 1px 1px #fff,
+    0 1px 2px 1px rgba(30, 35, 90, 0.4);
 }
 
 .dark .prose kbd {
   --at-apply: bg-gradient-to-br from-blue-gray-900 to-dark-600;
-  box-shadow: -1px -1px 1px #505050, 1px 1px 6px #000;
+  box-shadow:
+    -1px -1px 1px #505050,
+    1px 1px 6px #000;
 }
 
 /** EndSection: */
@@ -69,7 +75,8 @@
 }
 
 .prose h3 {
-  --at-apply: text-c-fgDeep font-600 text-xl mt-1.6em mb-space leading-1.6em op-90;
+  --at-apply: text-c-fgDeep font-600 text-xl mt-1.6em mb-space leading-1.6em
+    op-90;
 }
 
 .prose h4 {
@@ -80,9 +87,9 @@
   --at-apply: font-500 op-70;
 }
 
-.prose h2>code,
-.prose h3>code,
-.prose h4>code {
+.prose h2 > code,
+.prose h3 > code,
+.prose h4 > code {
   font-size: 0.9em !important;
 }
 
@@ -99,7 +106,7 @@
   --at-apply: relative w-fit;
 }
 
-.prose figure>* {
+.prose figure > * {
   --at-apply: my-0;
 }
 
@@ -118,7 +125,8 @@
 
 .prose figure.error::before {
   content: '';
-  background: var(--c-bg-mask) var(--c-icon-img-borken) no-repeat center / 50% 50%;
+  background: var(--c-bg-mask) var(--c-icon-img-borken) no-repeat center / 50%
+    50%;
   --at-apply: absolute top-0 left-0 w-full h-full text-transparent z-1;
 }
 
@@ -130,7 +138,8 @@
 
 /* NOTE: link-card */
 .prose figure[link] a {
-  --at-apply: border bg-gray bg-op-5 border-c-border rd overflow-hidden block hover:op-80 transition-all;
+  --at-apply: border bg-gray bg-op-5 border-c-border rd overflow-hidden block
+    hover: op-80 transition-all;
 }
 
 .prose figure[link] a img {
@@ -152,62 +161,62 @@
 .prose a:not(.no-prose) {
   --at-apply: text-c-fgDeeper font-500 decoration-none;
   --at-apply: border-b transition-border-color-300;
-  --at-apply: border-c-border hover:border-c-fg focus:border-c-fg;
+  --at-apply: border-c-border hover: border-c-fg focus: border-c-fg;
 }
 
 /** EndSection: */
 
 /** Section: List */
 
-.prose ol[type="A"] {
+.prose ol[type='A'] {
   --list-counter-style: upper-alpha;
 }
 
-.prose ol[type="a"] {
+.prose ol[type='a'] {
   --list-counter-style: lower-alpha;
 }
 
-.prose ol[type="A s"] {
+.prose ol[type='A s'] {
   --list-counter-style: upper-alpha;
 }
 
-.prose ol[type="a s"] {
+.prose ol[type='a s'] {
   --list-counter-style: lower-alpha;
 }
 
-.prose ol[type="I"] {
+.prose ol[type='I'] {
   --list-counter-style: upper-roman;
 }
 
-.prose ol[type="i"] {
+.prose ol[type='i'] {
   --list-counter-style: lower-roman;
 }
 
-.prose ol[type="I s"] {
+.prose ol[type='I s'] {
   --list-counter-style: upper-roman;
 }
 
-.prose ol[type="i s"] {
+.prose ol[type='i s'] {
   --list-counter-style: lower-roman;
 }
 
-.prose ol[type="1"] {
+.prose ol[type='1'] {
   --list-counter-style: decimal;
 }
 
-.prose ol>li::before {
+.prose ol > li::before {
   --at-apply: absolute left-0 text-c-dim op-80 font-400;
-  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+  content: counter(list-item, var(--list-counter-style, decimal)) '.';
 }
 
-.prose ol>li,
-.prose ul>li {
+.prose ol > li,
+.prose ul > li {
   --at-apply: relative pl-space;
 }
 
-.prose ul>li::before {
+.prose ul > li::before {
   --at-apply: bg-c-dim op-80 b-rd-full w-0.375em h-0.375em;
-  content: "";
+  content: '';
   position: absolute;
   top: calc(0.875em - 0.1875em);
   left: 0.25em;
@@ -222,7 +231,7 @@
   --at-apply: my-0.2em;
 }
 
-.prose>ul>li p {
+.prose > ul > li p {
   --at-apply: my-0.75em;
 }
 
@@ -248,29 +257,30 @@
   --at-apply: hidden;
 }
 
-.prose input[type="checkbox"] {
+.prose input[type='checkbox'] {
   --at-apply: appearance-none relative w-4 h-4 mr-1.8 bg-transparent;
 }
 
-.prose input[type="checkbox"]::before {
+.prose input[type='checkbox']::before {
   content: '';
   --at-apply: absolute top-0 left-0;
 }
 
-.prose input[type="checkbox"]:not([checked])::before {
-  --at-apply: i-uil:square-shape;
+.prose input[type='checkbox']:not([checked])::before {
+  --at-apply: i-uil: square-shape;
 }
 
-.prose input[type="checkbox"][checked="true"]::before {
-  --at-apply: op-60 i-ph:check-bold;
+.prose input[type='checkbox'][checked='true']::before {
+  --at-apply: op-60 i-ph: check-bold;
 }
 
 .prose li.task-list-item label {
   --at-apply: cursor-inherit;
 }
 
-.prose li.task-list-item input[type="checkbox"][checked="true"]+label {
-  --at-apply: op-60 decoration-line-through decoration-1 dark:decoration--1 decoration-coolgray;
+.prose li.task-list-item input[type='checkbox'][checked='true'] + label {
+  --at-apply: op-60 decoration-line-through decoration-1 dark: decoration--1
+    decoration-coolgray;
 }
 
 /** EndSection: */
@@ -288,14 +298,14 @@
 .prose blockquote {
   --at-apply: text-c-fg text-inherit font-500 not-italic op-60;
   --at-apply: my-space mx-0 pl-3 border-l-3px border-c-border;
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
-.prose blockquote> :first-child {
+.prose blockquote > :first-child {
   --at-apply: mt-0;
 }
 
-.prose blockquote> :last-child {
+.prose blockquote > :last-child {
   --at-apply: mb-0;
 }
 
@@ -363,9 +373,10 @@ html:not(.dark) .shiki-dark {
   --at-apply: bg-transparent p-0 m-0;
 } */
 
-.prose :not(pre)>code {
+.prose :not(pre) > code {
   --at-apply: bg-c-innerCodeBG border border-c-innerCodeBG;
-  --at-apply: text-c-fgDeep text-sm break-words whitespace-nowrap py-0.4 px-1.2 rd-sm;
+  --at-apply: text-c-fgDeep text-sm break-words whitespace-nowrap py-0.4 px-1.2
+    rd-sm;
 }
 
 .prose pre {
@@ -387,13 +398,15 @@ html:not(.dark) .shiki-dark {
 
 /** Section: MD-Plugin: TOC */
 @media (max-width: 1250px) {
-  .toc, .toc ol {
+  .toc,
+  .toc ol {
     --at-apply: hidden;
   }
 }
 
 .toc {
-  --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0 overflow-hidden op-60 transition-all-400;
+  --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0
+    overflow-hidden op-60 transition-all-400;
   right: calc((100% - 70ch) / 2 - 400px);
 }
 
@@ -403,15 +416,15 @@ html:not(.dark) .shiki-dark {
 
 .toc a {
   --at-apply: border-none transition-colors-200 text-0.8rem truncate;
-  --at-apply: text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60;
-  --at-apply: hover:text-c-fgDeeper focus:text-c-fgDeeper;
+  --at-apply: text-gray-700 text-op-60 dark: text-gray-200 dark: text-op-60;
+  --at-apply: hover: text-c-fgDeeper focus: text-c-fgDeeper;
 }
 
-.toc ol>li::before {
+.toc ol > li::before {
   --at-apply: hidden;
 }
 
-.toc ol>li {
+.toc ol > li {
   --at-apply: pl-3 my-.75rem;
 }
 
@@ -431,7 +444,8 @@ html:not(.dark) .shiki-dark {
 }
 
 .prose a.header-anchor {
-  --at-apply: float-left mt-0.1 ml--1.2em pr-0.5em font-600 decoration-none op-0 transition-opacity;
+  --at-apply: float-left mt-0.1 ml--1.2em pr-0.5em font-600 decoration-none op-0
+    transition-opacity;
   --at-apply: '!border-none';
 }
 

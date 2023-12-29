@@ -68,7 +68,8 @@ const projects: Projects = {
         desc: 'A starter template for library',
         iconClass: 'i-octicon-repo-template-24',
         link: 'https://github.com/Daydreamer-riri/starter-lib',
-      }, {
+      },
+      {
         name: 'Start VS Code',
         desc: 'Starter template for VS Code Extension',
         iconClass: 'i-octicon-repo-template-24',

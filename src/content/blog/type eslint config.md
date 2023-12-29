@@ -7,6 +7,7 @@ tags:
   - release
 description: Type Eslint Config.
 ---
+
 I recently found a tool to assist in configuring eslint, called [eslint-defint-config](https://github.com/Shinigami92/eslint-define-config).
 
 At first, I thought it could only assist in entering the outermost fields, such as extends, override, etc.

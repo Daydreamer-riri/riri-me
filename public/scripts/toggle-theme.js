@@ -5,10 +5,12 @@ const currentTheme = localStorage.getItem('theme')
 
 function getPreferTheme() {
   // return theme value in local storage if it is set
-  if (currentTheme) return currentTheme
+  if (currentTheme)
+    return currentTheme
 
   // return primary color scheme if it is set
-  if (primaryColorScheme) return primaryColorScheme
+  if (primaryColorScheme)
+    return primaryColorScheme
 
   // return user device's prefer color scheme
   return window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -38,7 +40,7 @@ window.onload = () => {
   reflectPreference()
 
   // now this script can find and listen for clicks on the control
-  document.querySelector('#theme-btn')?.addEventListener('click', (event) => {
+  document.querySelector('#theme-btn')?.addEventListener('click', event => {
     toggleDark(event)
   })
 }
@@ -51,13 +53,13 @@ window
     setPreference()
   })
 
-  /**
+/**
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347
  */
 function toggleDark(event) {
   const isDark = themeValue === 'dark'
-  
+
   // @ts-expect-error experimental API
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -99,7 +101,7 @@ function toggleDark(event) {
         },
       )
     })
-  
+
   function toggle() {
     themeValue = themeValue === 'light' ? 'dark' : 'light'
     setPreference()

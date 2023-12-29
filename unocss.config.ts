@@ -4,7 +4,7 @@ import {
   presetIcons,
   presetUno,
   presetWebFonts,
-  } from 'unocss'
+} from 'unocss'
 import transformerDirectives from '@unocss/transformer-directives'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 import type { Theme } from 'unocss/preset-mini'
@@ -59,11 +59,11 @@ const _VARS: Theme = {
  * @example: ['bg-c-bg', 'bg-l-bg dark:bg-d-bg']
  */
 const COLS = ['bg', 'text', 'border']
-const mergeVarCols = () => {
+function mergeVarCols() {
   const res = Object.assign([])
   const lightMP: any = _VARS?.colors?.l
   for (const name in lightMP) {
-    COLS.forEach((key) => {
+    COLS.forEach(key => {
       const item = [`${key}-c-${name}`]
       const val = [`${key}-l-${name}`]
       if (Object.prototype.hasOwnProperty.call(_VARS?.colors?.d, name))

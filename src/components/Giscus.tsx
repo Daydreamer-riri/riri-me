@@ -8,12 +8,12 @@ export default function Giscus() {
       repoId={giscusConfig.categoryId}
       category={giscusConfig.category}
       categoryId={giscusConfig.categoryId}
-      theme={'preferred_color_scheme'}
-      mapping={'pathname'}
-      inputPosition={'top'}
-      reactionsEnabled={'1'}
-      strict={'1'}
-      emitMetadata={'0'}
+      theme="preferred_color_scheme"
+      mapping="pathname"
+      inputPosition="top"
+      reactionsEnabled="1"
+      strict="1"
+      emitMetadata="0"
     />
   )
 }

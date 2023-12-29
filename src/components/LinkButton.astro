@@ -10,21 +10,21 @@ export interface Props {
 const { href, className, ariaLabel, title, disabled = false } = Astro.props
 ---
 
-<a
-  type="button"
-  href={disabled ? '#' : href}
-  tabindex={disabled ? '-1' : '0'}
-  class={`group ${className}`}
-  aria-label={ariaLabel}
-  title={title}
-  aria-disabled={disabled}
-  rel="prefetch-intent"
->
-  <slot />
-</a>
+  <a
+    type="button"
+    href={disabled ? '#' : href}
+    tabindex={disabled ? '-1' : '0'}
+    class={`group ${className}`}
+    aria-label={ariaLabel}
+    title={title}
+    aria-disabled={disabled}
+    rel="prefetch-intent"
+  >
+    <slot />
+  </a>
 
-<style scoped>
+    <style scoped>
   a {
     --at-apply: pb-0.3 border-b border-transparent hover:border-c-fg transition-border-color-300;
   }
-</style>
+    </style>

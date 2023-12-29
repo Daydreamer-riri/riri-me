@@ -1,14 +1,15 @@
 import dayjs from 'dayjs'
 import type { CollectionEntry } from 'astro:content'
 
-export const getSortedPosts = (posts: CollectionEntry<'blog'>[]) =>
-  posts
+export function getSortedPosts(posts: CollectionEntry<'blog'>[]) {
+  return posts
     .filter(({ data }) => !data.draft)
     .sort(
       (a, b) => {
         return dayjs(a.data.pubDatetime).isBefore(dayjs(b.data.pubDatetime)) ? 1 : -1
       },
     )
+}
 
 export function getYearToPostMap(posts: CollectionEntry<'blog'>[]) {
   const map = {} as Record<string, CollectionEntry<'blog'>[]>
@@ -23,10 +24,9 @@ export function getYearToPostMap(posts: CollectionEntry<'blog'>[]) {
 
 export const getYear = (a: Date | string | number) => new Date(a).getFullYear()
 
-export const isSameYear = (
-  a: Date | string | number,
-  b: Date | string | number,
-) => a && b && getYear(a) === getYear(b)
+export function isSameYear(a: Date | string | number, b: Date | string | number) {
+  return a && b && getYear(a) === getYear(b)
+}
 
 export function formatDate(d?: string | Date | null, lang = 'en') {
   if (!d)

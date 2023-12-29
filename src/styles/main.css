@@ -59,7 +59,7 @@ html.dark {
 
 /** Section: Plugin - Medium Zoom */
 .medium-zoom-overlay {
-  --at-apply: "z-100 bg-c-bg! bg-op-80! dark:bg-op-80!";
+  --at-apply: 'z-100 bg-c-bg! bg-op-80! dark:bg-op-80!';
   -webkit-backdrop-filter: saturate(50%) blur(4px);
   backdrop-filter: saturate(50%) blur(4px);
 }
@@ -72,12 +72,12 @@ html.dark {
 @keyframes slide-enter {
   0% {
     opacity: 0;
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
 
   to {
     opacity: 1;
-    transform: none
+    transform: none;
   }
 }
 
@@ -87,7 +87,7 @@ html.dark {
   --start: 0ms;
 }
 
-@media (prefers-reduced-motion:no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   [slide-enter],
   .slide-enter,
   .slide-enter-content > * {
@@ -95,7 +95,9 @@ html.dark {
     --enter-step: 150ms;
     --enter-initial: 0ms;
     animation: slide-enter 1s both 1;
-    animation-delay: calc(var(--enter-initial) + var(--enter-stage) * var(--enter-step));
+    animation-delay: calc(
+      var(--enter-initial) + var(--enter-stage) * var(--enter-step)
+    );
   }
 }
 /** EndSection: */

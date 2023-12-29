@@ -30,12 +30,16 @@ npm ERR! missing: p-event@^4.0.0, required by got@10.5.5
 
 This is probably because the symlinks of `pnpm` are not compatible with `vsce`, if you use `yarn` for dependency installation you don't encounter similar problems.
 
-I changed my workflows to solve this problem: 
+I changed my workflows to solve this problem:
+
 1. instead of using `vsce` for packaging, use `tsup`
+
 ```sh
 tsup src/extension.ts --format cjs --external vscode --no-shims
 ```
+
 2. Use `-no-dependencies` to skip the vsce packaging process when calling `vsce`, so it doesn't have to find dependencies
+
 ```sh
 npx @vscode/vsce publish --no-dependencies
 ```

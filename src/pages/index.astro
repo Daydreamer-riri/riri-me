@@ -7,15 +7,15 @@ import InsCard from '@components/InsCard/index.astro'
 import * as Home from '../content/page/home.md'
 ---
 
-<Layout>
-  <Default>
-    <div class="prose m-auto slide-enter">
-      <h1 class="flex flex-items-center"><Image widths={[80, 120]} class="avatar block mt-0! mb-0! w-2.5rem h-2.5rem rd-2.5rem mr-3 pointer-events-none" src={avatar} alt="avatar" />Riri</h1>
-      <article slide-enter animate-delay-200>
-        <Home.Content />
-      </article>
-      <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
-      <InsCard />
-    </div>
-  </Default>
-</Layout>
+  <Layout>
+    <Default>
+      <div class="prose m-auto slide-enter">
+        <h1 class="flex flex-items-center"><Image widths={[80, 120]} class="avatar block mt-0! mb-0! w-2.5rem h-2.5rem rd-2.5rem mr-3 pointer-events-none" src={avatar} alt="avatar" />Riri</h1>
+        <article slide-enter animate-delay-200>
+          <Home.Content />
+        </article>
+        <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
+        <InsCard />
+      </div>
+    </Default>
+  </Layout>

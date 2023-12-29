@@ -3,19 +3,12 @@
 // import { fade } from 'astro:transitions'
 import Footer from '@components/Footer.astro'
 import NavBar from '@components/NavBar.astro'
-
-// export interface Props {
-//   pageTitle: string
-//   pageDesc?: string
-// }
-
-// const { pageTitle, pageDesc } = Astro.props
 ---
 
-<NavBar />
-<main px-7 py-10>
-  <slot />
-  <Footer className="max-w-content m-auto" />
-</main>
+  <NavBar />
+    <main px-7 py-10>
+      <slot />
+      <Footer className="max-w-content m-auto" />
+    </main>
 
-<style></style>
+    <style></style>
