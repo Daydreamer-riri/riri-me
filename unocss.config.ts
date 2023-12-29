@@ -4,9 +4,9 @@ import {
   presetIcons,
   presetUno,
   presetWebFonts,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss'
+  } from 'unocss'
+import transformerDirectives from '@unocss/transformer-directives'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 import type { Theme } from 'unocss/preset-mini'
 
 /**

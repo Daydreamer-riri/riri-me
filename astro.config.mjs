@@ -7,7 +7,6 @@ import rehypeAutoLindHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import sitemap from '@astrojs/sitemap'
-import prefetch from '@astrojs/prefetch'
 import mdx from '@astrojs/mdx'
 
 const headerAnchor = {
@@ -19,12 +18,12 @@ const headerAnchor = {
 export default defineConfig({
   site: 'https://Daydreamer-riri.me',
   integrations: [
+    UnoCss({ injectReset: true }),
     mdx(),
     react(),
-    UnoCss({ injectReset: true }),
     sitemap(),
-    prefetch({ throttle: 3 }),
   ],
+  prefetch: true,
   markdown: {
     rehypePlugins: [
       rehypeSlug,

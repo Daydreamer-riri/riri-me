@@ -20,7 +20,6 @@ import { github, instagram, twitter } from '@/meta'
 >
   <div class="max-w-120ch m-auto flex justify-between items-center">
     <a
-      rel="prefetch"
       class="w-11 h-11 mt-0.6rem mx-6 outline-none hover:op-70 transition-opacity box-border"
       href="/"
     >
@@ -52,10 +51,10 @@ import { github, instagram, twitter } from '@/meta'
       <span class="nav-divider"></span>
 
       <a href={twitter} target="_blank" title="Twitter" lt-md:hidden rel="noreferrer">
-        <div i-uil:twitter-alt></div>
+        <div i-uil:twitter-alt>icon-twitter</div>
       </a>
       <a href={instagram} target="_blank" title="Instagram" lt-md:hidden rel="noreferrer">
-        <div i-lucide:instagram></div>
+        <div i-lucide:instagram>icon-instagram</div>
       </a>
       <a
         href={github}
@@ -64,10 +63,10 @@ import { github, instagram, twitter } from '@/meta'
         rel="noreferrer"
         lt-md:hidden
       >
-        <div i-uil-github-alt></div>
+        <div i-uil-github-alt>icon-github</div>
       </a>
       <a href={'/rss.xml'} target="_blank" title="RSS" lt-md:hidden rel="noreferrer">
-        <div i-lucide:rss></div>
+        <div i-lucide:rss>icon-rss</div>
       </a>
       <span class="nav-divider lt-md:hidden"></span>
       <!-- the toggle theme logic is in /public/toggle-theme.js -->
@@ -95,9 +94,9 @@ import { github, instagram, twitter } from '@/meta'
   }
 
   .logo-light {
-    --at-apply: dark:display-none;
+    --at-apply: 'dark:hidden';
   }
   .logo-dark {
-    --at-apply: 'display-none dark:display-block';
+    --at-apply: 'hidden dark:block';
   }
 </style>
