@@ -9,7 +9,7 @@ export const author = 'Riri'
 /** social links */
 export const ogImg = 'https://daydreamer-riri.me/og/index.png'
 export const github = 'https://github.com/Daydreamer-riri'
-export const twitter = 'https://twitter.com/'
+export const twitter = 'https://twitter.com/Alex83542898'
 export const twitterCreator = '@default'
 export const instagram = 'https://www.instagram.com/daydreamer_riri'
 export const email = 'Daydreamerriri@outlook.com'
