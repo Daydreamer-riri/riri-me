@@ -19,9 +19,7 @@ const headerAnchor = {
 export default defineConfig({
   site: 'https://Daydreamer-riri.me',
   integrations: [
-    UnoCss({
-      injectReset: true,
-    }),
+    UnoCss({ injectReset: true }),
     mdx(),
     react(),
     sitemap(),
@@ -33,13 +31,14 @@ export default defineConfig({
       rehypeSlug,
       // @ts-expect-error rehypeToc has type error
       rehypeToc,
-      [rehypeAutoLindHeadings, {
-        behavior: 'append',
-        properties: {
-          class: 'header-anchor',
+      [
+        rehypeAutoLindHeadings,
+        {
+          behavior: 'append',
+          properties: { class: 'header-anchor' },
+          content: headerAnchor,
         },
-        content: headerAnchor,
-      }],
+      ],
     ],
     shikiConfig: {
       wrap: true,
@@ -47,8 +46,8 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [Icons({
-      compiler: 'astro',
-    })],
+    plugins: [
+      Icons({ compiler: 'astro' }),
+    ],
   },
 })

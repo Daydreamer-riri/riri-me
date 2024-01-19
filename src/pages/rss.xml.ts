@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 import { description, site } from '@meta'
 import slugify from '@utils/slugify'
 
-export async function get() {
+export async function GET() {
   const posts = await getCollection('blog', ({ data }) => !data.draft)
   return rss({
     title: 'Daydreamer Riri',
