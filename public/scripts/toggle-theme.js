@@ -27,7 +27,9 @@ function setPreference() {
 
 function reflectPreference() {
   document.firstElementChild.setAttribute('data-theme', themeValue)
-  document.firstElementChild.className = themeValue
+  const reverseThemeValue = themeValue === 'dark' ? 'light' : 'dark'
+  document.firstElementChild.classList.remove(reverseThemeValue)
+  document.firstElementChild.classList.add(themeValue)
 
   document.querySelector('#theme-btn')?.setAttribute('aria-label', themeValue)
 }
@@ -40,7 +42,7 @@ window.onload = () => {
   reflectPreference()
 
   // now this script can find and listen for clicks on the control
-  document.querySelector('#theme-btn')?.addEventListener('click', event => {
+  document.querySelector('#theme-btn')?.addEventListener('pointerup', event => {
     toggleDark(event)
   })
 }
@@ -76,6 +78,7 @@ function toggleDark(event) {
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   )
+  document.documentElement.classList.add('theme-clip')
   // @ts-expect-error: Transition API
   const transition = document.startViewTransition(() => {
     toggle()
@@ -100,6 +103,11 @@ function toggleDark(event) {
             : '::view-transition-new(root)',
         },
       )
+    })
+
+  transition.finished
+    .then(() => {
+      document.documentElement.classList.remove('theme-clip')
     })
 
   function toggle() {
