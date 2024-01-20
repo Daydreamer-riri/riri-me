@@ -26,12 +26,12 @@ const projects: Projects = {
         link: 'https://github.com/Daydreamer-riri/vite-react-ssg',
       },
     ],
-    'CLI': [
+    'CSS': [
       {
-        name: 'img-shadower',
-        desc: 'Add rounded corners and shadows to the image.',
-        iconClass: 'i-fluent:image-shadow-24-regular',
-        link: 'https://github.com/Daydreamer-riri/img-shadower',
+        name: 'material3-style',
+        desc: 'A Material 3 (Material Design) style library, including typography, color, elevation, shape and motion.',
+        iconClass: 'i-mdi-material-design',
+        link: 'https://github.com/Daydreamer-riri/material3-style',
       },
     ],
     'VS Code Extensions:': [
@@ -46,6 +46,14 @@ const projects: Projects = {
         desc: 'Helps JavaScript developers managing dependencies with package.json.',
         iconClass: 'i-noto-v1:package',
         link: 'https://github.com/Daydreamer-riri/vscode-ext-packages',
+      },
+    ],
+    'CLI': [
+      {
+        name: 'img-shadower',
+        desc: 'Add rounded corners and shadows to the image.',
+        iconClass: 'i-fluent:image-shadow-24-regular',
+        link: 'https://github.com/Daydreamer-riri/img-shadower',
       },
     ],
     'Configurations': [
