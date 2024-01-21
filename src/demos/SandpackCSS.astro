@@ -1,0 +1,11 @@
+---
+import { getSandpackCssText } from '@codesandbox/sandpack-react'
+---
+  <style set:html={getSandpackCssText()} is:inline></style>
+    <style is:global>
+.sp-wrapper {
+  width: 120% !important;
+  margin-left: -10% !important;
+  --sp-border-radius: 0.5rem !important;
+}
+    </style>
