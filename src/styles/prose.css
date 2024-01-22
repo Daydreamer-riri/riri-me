@@ -1,7 +1,7 @@
 /** Section: Init */
 
 .prose {
-  --at-apply: max-w-content text-c-fg text-4 leading-1.9em;
+  --at-apply: max-w-90ch text-c-fg text-4 leading-1.9em;
 }
 
 .prose > :first-child {
@@ -380,7 +380,8 @@ html:not(.dark) .shiki-dark {
 
 .prose pre {
   --at-apply: relative m-0 py-4 px-4 rd overflow-x-auto;
-  --at-apply: text-#e5e7eb text-4 bg-transparent;
+  --at-apply: text-#e5e7eb text-3.5 bg-transparent;
+  line-height: 1.5;
 }
 
 .prose pre code {
@@ -405,18 +406,23 @@ html:not(.dark) .shiki-dark {
 
 .toc {
   --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0
-    overflow-hidden op-60 transition-all-400;
-  right: calc((100% - 70ch) / 2 - 400px);
+    op-60 transition-all-400;
+  right: calc(-256px - 15%);
 }
 
 .toc:hover {
   --at-apply: op-100;
 }
 
-.toc a {
+.toc > ol {
+  position: sticky;
+  top: 300px;
+}
+
+.toc a.toc-link {
   --at-apply: border-none transition-colors-200 text-0.8rem truncate;
-  --at-apply: text-gray-700 text-op-60 dark: text-gray-200 dark: text-op-60;
-  --at-apply: hover:text-c-fgDeeper focus: text-c-fgDeeper;
+  --at-apply: "text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60";
+  --at-apply: "hover:text-c-fgDeeper focus:text-c-fgDeeper";
 }
 
 .toc ol > li::before {
