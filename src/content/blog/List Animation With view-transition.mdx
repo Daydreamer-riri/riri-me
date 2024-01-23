@@ -1,12 +1,11 @@
 ---
 author: Riri
-pubDatetime: 2024-01-20 00:00
+pubDatetime: 2024-01-23 17:00
 title: List Animation With view-transition
 featured: true
 tags:
   - release
-description: view-transition.
-draft: true
+description: List Animation With view-transition.
 ---
 
 import { ListAnimationFramerMotion } from '@/demos/list-animation/framer-motion'
@@ -15,10 +14,171 @@ import SandpackCSS from '@/demos/SandpackCSS.astro'
 
 <SandpackCSS />
 
+I recently discovered that `react-transition-group` does not support FLIP list animations (in contrast, VUE's built-in `TransitionGroup` does). 
+So how should we implement a beautiful list animation in the world of React? This article will explain my exploration process.
+
 ## Framer Motion
+
+`framer-motion` is an excellent animation library, its API design is very elegant, it can be said to be the best in React animation libraries,
+and it is currently the most popular React animation library.
+
+FLIP transitions in `framer-motion` are supported by the `positionTransition` property.
+The `framer-motion` official provides a Notifications example, from which we can see how to use `positionTransition` to implement list animations.
+
+> link: [framer-motion Notifications](https://codesandbox.io/s/framer-motion-notifications-5cvo9)
+
+The core code is as follows:
+
+```tsx
+import React, { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { CloseButton, remove, add } from './utils'
+
+export default function App() {
+  const [notifications, setNotifications] = useState([0])
+
+  return (
+    <div className="container">
+      <ul>
+        <AnimatePresence initial={false}>
+          {notifications.map(id => (
+            <motion.li
+              key={id}
+              positionTransition  // <--- positionTransition
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+            >
+              <CloseButton
+                close={() => setNotifications(remove(notifications, id))}
+              />
+            </motion.li>
+          ))}
+        </AnimatePresence>
+      </ul>
+      <button
+        className="add"
+        onClick={() => setNotifications(add(notifications))}
+      >
+        +
+      </button>
+    </div>
+  )
+}
+```
+
+After specifying `positionTransition`, `framer-motion` will automatically calculate the position of the current element when it changes,
+and then implement the animation through `transform` and `opacity`.
 
 <ListAnimationFramerMotion client:load />
 
-## View-transition
+## View Transition
+
+But sometimes we don't want to use `framer-motion` because it's quite large in size.
+With the `view transition api`, we can easily implement list animations without introducing external libraries.
+
+Simply put, the `view transition api` can automatically implement transitions for changes in elements with the same `view-transition-name` in `document.startViewTransition`.
+
+We can start to modify the `framer-motion` example, replace `motion.li` with a regular `li`, and specify `view-transition-name`.
+
+```tsx
+// ...
+  <ul>
+    {notifications.map(id => (
+      <li
+        key={id}
+        // In css, view-transition-name applies this variable
+        style={{ "--transition-name": `tn-${ id } ` }} 
+        id={`li-${ id }`}
+      >
+        <CloseButton
+          close={() => setNotifications(remove(notifications, id))}
+        />
+      </motion.li>
+    ))}
+  </ul>
+```
+
+Next, since the `view transition api` requires all changes to be completed in the callback of `document.startViewTransition`,
+we need to wrap the state changes in ReactDom's `flushSync`:
+
+```tsx
+import { flushSync } from 'react-dom'
+
+// Close button
+  <CloseButton
+    close={() => {
+      document.startViewTransition(() =>
+        flushSync(() => setNotifications(remove(notifications, id)))
+      );
+    }}
+  />
+
+// Add button
+  <button
+    className="add"
+    onClick={() => {
+      document.startViewTransition(() => {
+        flushSync(() => {
+          setNotifications(add(notifications));
+        });
+      });
+    }}
+  >
+    +
+  </button>
+```
+
+At this point, you already have a list animation that is no worse than `framer-motion`.
+
+In the `framer-motion` example, there is also a scaling animation when the card exits. Currently, our example fades out by default when the card exits.
+We can set a new `view-transition-name` for the element that is about to exit when exiting, and then specify a scaling animation for this `view-transition-name` in css.
+
+```tsx
+<CloseButton
+  close={() => {
+    const li = document.getElementById(`li-${ id }`);
+    li.style['view-transition-name'] = "tn-out";
+    document.startViewTransition(() =>
+      flushSync(() => setNotifications(remove(notifications, id)))
+    );
+  }}
+/>
+```
+
+```scss
+// :only-child represents that there is only view-transition-old and no view-transition-new
+::view-transition-old(tn-out):only-child {
+  animation: scale-out .3s forwards;
+}
+```
+
+We can also set an entrance animation for the card:
+
+```scss
+li {
+  view-transition-name: var(--transition-name);
+  animation: scale-in .3s;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+```
+
+The effect is as follows:
 
 <ListAnimationViewTransition client:load />
+
+## Conclusion
+
+The `view transition api` is a very excellent API, it allows us to implement beautiful list animations without introducing external libraries.
+But currently, it has some compatibility issues (chrome 111+), so be careful when using it in actual projects.
+The effects it can achieve far exceed the examples in this article, and I will bring more applications of `view transition api` in the future.

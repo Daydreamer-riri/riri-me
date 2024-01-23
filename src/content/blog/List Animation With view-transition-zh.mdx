@@ -1,0 +1,177 @@
+---
+author: Riri
+pubDatetime: 2024-01-23 17:00
+title: 使用 view-transition 实现列表动画
+featured: true
+tags:
+  - release
+description: List Animation With view-transition.
+---
+
+import { ListAnimationFramerMotion } from '@/demos/list-animation/framer-motion'
+import { ListAnimationViewTransition } from '@/demos/list-animation/view-transition'
+import SandpackCSS from '@/demos/SandpackCSS.astro'
+
+<SandpackCSS />
+
+最近我才发现 `react-transition-group` 并不支持 FLIP 的列表动画（相对的，VUE内置的 `TransitionGroup` 是支持的）。
+那么在 React 的世界中应该如何实现一个优美的列表动画呢？这篇文章将会向你阐述我的探索过程。
+
+## Framer Motion
+
+`framer-motion` 是一个非常优秀的动画库，它的 API 设计非常优雅，可以说是 React 动画库中的佼佼者，也是目前最受欢迎的 React 动画库。
+
+FLIP 过度在 `framer-motion` 中是由 `positionTransition` 属性支持的。
+`framer-motion` 官方提供了一个 Notifications 的例子，我们可以从中看到到如何使用 `positionTransition` 来实现列表动画。
+
+> link: [framer-motion Notifications](https://codesandbox.io/s/framer-motion-notifications-5cvo9)
+
+其中的核心代码如下：
+```tsx
+import React, { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { CloseButton, remove, add } from './utils'
+
+export default function App() {
+  const [notifications, setNotifications] = useState([0])
+
+  return (
+    <div className="container">
+      <ul>
+        <AnimatePresence initial={false}>
+          {notifications.map(id => (
+            <motion.li
+              key={id}
+              positionTransition  // <--- positionTransition
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+            >
+              <CloseButton
+                close={() => setNotifications(remove(notifications, id))}
+              />
+            </motion.li>
+          ))}
+        </AnimatePresence>
+      </ul>
+      <button
+        className="add"
+        onClick={() => setNotifications(add(notifications))}
+      >
+        +
+      </button>
+    </div>
+  )
+}
+```
+
+指定 `positionTransition` 后，`framer-motion` 会自动计算出当前元素变化时的位置，然后通过 `transform` 和 `opacity` 来实现动画。
+
+<ListAnimationFramerMotion client:load />
+
+## View Transition
+
+但有时我们并不想使用 `framer-motion`，因为它的体积比较大。借助 `view transition api`，我们可以在不引入外部库的情况下非常简单实现列表动画。
+
+简单的说，`view transition api` 可以自动为拥有相同 `view-transition-name` 的元素的在 `document.startViewTransition` 中的变化实现过度。
+
+我们可以开始改造 `framer-motion` 的例子，将 `motion.li` 替换为普通的 `li`，并指定 `view-transition-name`。
+
+```tsx
+// ...
+  <ul>
+    {notifications.map(id => (
+      <li
+        key={id}
+        // 在 css 中 view-transition-name 应用了这个变量
+        style={{ "--transition-name": `tn-${ id } ` }} 
+        id={`li-${ id }`}
+      >
+        <CloseButton
+          close={() => setNotifications(remove(notifications, id))}
+        />
+      </motion.li>
+    ))}
+  </ul>
+```
+
+接下来，由于 `view transition api` 需要所有的变化都在 `document.startViewTransition` 的回调中完成，所以需要将状态变化包裹在 ReactDom 的 `flushSync` 中：
+
+```tsx
+import { flushSync } from 'react-dom'
+
+// 关闭按钮
+  <CloseButton
+    close={() => {
+      document.startViewTransition(() =>
+        flushSync(() => setNotifications(remove(notifications, id)))
+      );
+    }}
+  />
+
+// 添加按钮
+  <button
+    className="add"
+    onClick={() => {
+      document.startViewTransition(() => {
+        flushSync(() => {
+          setNotifications(add(notifications));
+        });
+      });
+    }}
+  >
+    +
+  </button>
+```
+
+此时你已经拥有了一个效果不差于 `framer-motion` 的列表动画了。
+
+`framer-motion` 的例子中，卡片退出时也有一个缩放的动画，目前我们的例子在卡片退出时是默认的淡出。
+我们可以在退出时为即将退出的元素设置一个新的 `view-transition-name`，然后在 css 中为这个 `view-transition-name` 指定一个缩放的动画。
+
+```tsx
+  <CloseButton
+    close={() => {
+      const li = document.getElementById(`li-${ id }`);
+      li.style['view-transition-name'] = "tn-out";
+      document.startViewTransition(() =>
+        flushSync(() => setNotifications(remove(notifications, id)))
+      );
+    }}
+  />
+```
+
+```scss
+// :only-child 代表此时只有 view-transition-old 没有 view-transition-new
+::view-transition-old(tn-out):only-child {
+  animation: scale-out .3s forwards;
+}
+```
+
+我们还可以为卡片设置一个入场动画：
+```css
+li {
+  view-transition-name: var(--transition-name);
+  animation: scale-in .3s;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+```
+
+效果如下：
+
+<ListAnimationViewTransition client:load />
+
+## 总结
+
+`view transition api` 是一个非常优秀的 API，它可以让我们在不引入外部库的情况下实现优美的列表动画。但是目前它的兼容性还存在一定问题（chrome 111+），所以在实际项目中使用时需要注意。
+它能实现的效果远超本文中的例子，后续我也会带来更多 `view transition api` 的应用。
