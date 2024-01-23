@@ -1,5 +1,5 @@
 import style from '../common/styles.css?raw'
-import utils from '../common/utils.tsx?raw'
+import utils from '../common/utils.jsx?raw'
 import { Sandpack } from '@/demos/Sandpack'
 
 const example = `import React, { useState } from 'react'
@@ -82,10 +82,10 @@ const css = `li {
 export function ListAnimationViewTransition() {
   return (
     <Sandpack
-      template="vite-react-ts"
+      template="react"
       files={{
-        '/App.tsx': example,
-        '/utils.tsx': utils,
+        '/App.js': example,
+        '/utils.js': utils,
         '/styles.css': style,
         '/index.css': css,
       }}

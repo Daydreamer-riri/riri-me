@@ -1,4 +1,4 @@
-function Path(props: any) {
+function Path(props) {
   return (
     <path
       fill="transparent"
@@ -10,7 +10,7 @@ function Path(props: any) {
   )
 }
 
-export function CloseButton({ close }: { close: () => void }) {
+export function CloseButton({ close }) {
   return (
     <button onClick={close} className="close">
       <svg width="23" height="23" viewBox="0 0 23 23">
@@ -21,14 +21,14 @@ export function CloseButton({ close }: { close: () => void }) {
   )
 }
 
-export function remove(arr: number[], item: number) {
+export function remove(arr, item) {
   const newArr = [...arr]
   newArr.splice(newArr.findIndex(i => i === item), 1)
   return newArr
 }
 
 let newIndex = 0
-export function add(arr: number[]) {
+export function add(arr) {
   newIndex++
   return [...arr, newIndex]
 }
