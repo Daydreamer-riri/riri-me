@@ -90,7 +90,7 @@ export function ListAnimationViewTransition() {
         '/index.css': css,
       }}
       options={{
-        visibleFiles: ['/App.tsx', '/index.css', '/utils.tsx'],
+        visibleFiles: ['/App.js', '/index.css', '/utils.js'],
       }}
     />
   )

@@ -13,7 +13,7 @@ export function ListAnimationFramerMotion() {
         '/styles.css': style,
       }}
       options={{
-        visibleFiles: ['/App.tsx', '/utils.tsx'],
+        visibleFiles: ['/App.tsx', '/utils.js'],
       }}
       customSetup={{
         dependencies: {
