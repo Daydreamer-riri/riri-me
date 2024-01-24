@@ -102,6 +102,10 @@ html.dark {
 }
 /** EndSection: */
 
+.theme-clip * {
+  view-transition-name: none !important;
+}
+
 .theme-clip::view-transition-old(root),
 .theme-clip::view-transition-new(root) {
   animation: none;
