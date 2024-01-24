@@ -70,7 +70,7 @@ export default function App() {
 After specifying `positionTransition`, `framer-motion` will automatically calculate the position of the current element when it changes,
 and then implement the animation through `transform` and `opacity`.
 
-<ListAnimationFramerMotion client:load />
+<ListAnimationFramerMotion client:only="react" />
 
 ## View Transition
 
@@ -175,7 +175,7 @@ li {
 
 The effect is as follows:
 
-<ListAnimationViewTransition client:load />
+<ListAnimationViewTransition client:only="react" />
 
 ## Conclusion
 

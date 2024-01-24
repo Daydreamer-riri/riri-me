@@ -6,7 +6,7 @@ import {
   SandpackLayout,
   SandpackPreview,
   SandpackProvider,
-} from '@codesandbox/sandpack-react'
+} from '@codesandbox/sandpack-react/unstyled'
 
 export function Sandpack(props: SandpackProps) {
   return (
@@ -21,7 +21,7 @@ export function Sandpack(props: SandpackProps) {
       }}
     >
       <SandpackLayout>
-        <SandpackCodeEditor />
+        <SandpackCodeEditor initMode="lazy" />
         <SandpackPreview />
       </SandpackLayout>
     </SandpackProvider>
