@@ -21,7 +21,8 @@ const showAvatar = Astro.url.pathname !== '/'
     backdrop-blur-4
     backdrop-saturate-50
     select-none
-    class="my-2.5"
+    class="my-2.5 sticky top--20"
+    transition:name="navbar"
   >
     <div class="max-w-120ch m-auto flex justify-between items-center">
       <a
@@ -117,6 +118,9 @@ const showAvatar = Astro.url.pathname !== '/'
     </style>
     <style is:global>
   ::view-transition-group(riri-avatar),::view-transition-old(riri-avatar),::view-transition-new(riri-avatar) {
-    animation-duration: .65s;
+    animation-duration: .3s;
+  }
+  ::view-transition-group(navbar),::view-transition-old(navbar),::view-transition-new(navbar) {
+    animation-duration: .3s;
   }
     </style>
