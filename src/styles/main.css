@@ -119,3 +119,9 @@ html.dark {
 .theme-clip.dark::view-transition-new(root) {
   z-index: 9999;
 }
+
+::view-transition-group(page-title),
+::view-transition-old(page-title),
+::view-transition-new(page-title) {
+  animation-duration: .3s;
+}

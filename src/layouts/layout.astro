@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import ThemeScript from './theme-script.astro'
 import * as SITE from '@/meta'
 import '../styles/main.css'
@@ -27,7 +28,7 @@ const fallbackImageURL = new URL(SITE.ogImg, Astro.url.origin).href
 <!DOCTYPE html>
   <html lang="en">
     <head>
-    <!-- <ViewTransitions /> -->
+      <ViewTransitions />
       <meta name="baidu-site-verification" content="codeva-BMnaxCIwHu" />
       <link rel="sitemap" href="/sitemap-index.xml" />
       <meta charset="UTF-8" />

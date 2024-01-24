@@ -44,11 +44,8 @@ const yearToPostMap = getYearToPostMap(posts)
                   {year}
                 </span>
               </div>
-              {yearToPostMap[year].map(({ data, body, id }) => (
-                <div
-                  class="slide-enter"
-                  style={`--enter-stage: ${index}`}
-                >
+              {yearToPostMap[year].map(({ data, body, id, slug }) => (
+                <div>
                   <a
                     rel="prefetch-intent"
                     href={`/posts/${slugify(data)}`}
@@ -56,12 +53,18 @@ const yearToPostMap = getYearToPostMap(posts)
                   >
                     <li class="mb-2!">
                       {/-zh.mdx?$/i.test(id) && (
-                        <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2">中文</span>
+                        <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2 op-60 transition-opacity transition-duration-200">中文</span>
                       )}
-                      <span class="text-lg leading-1.2rem">{data.title}</span>
+                      <span
+                        class="text-lg leading-1.2rem op-60 transition-opacity transition-duration-200 text-balance"
+                        transition:name={`${slug}__title`}
+                      >
+                        {data.title}
+                      </span>
                       <time
-                        class="op-50 text-sm block"
+                        class="text-sm block w-fit op-30 transition-opacity transition-duration-200"
                         datetime={dayjs(data.pubDatetime).toISOString()}
+                        transition:name={`${slug}__time`}
                       >
                         {formatDate(data.pubDatetime)} · {getReadingTime(body)}
                       </time>
@@ -87,11 +90,11 @@ const yearToPostMap = getYearToPostMap(posts)
   </Layout>
 
     <style>
-  a.item {
-    --at-apply: op-60 transition-opacity;
-    transition-duration: 0.2s;
-  }
-  a.item:hover {
+  a.item:hover span {
     opacity: 1;
+  }
+
+  a.item:hover time {
+    opacity: 0.6;
   }
     </style>
