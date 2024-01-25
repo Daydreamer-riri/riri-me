@@ -116,11 +116,3 @@ const showAvatar = Astro.url.pathname !== '/'
     --at-apply: 'hidden dark:block';
   }
     </style>
-    <style is:global>
-  ::view-transition-group(riri-avatar),::view-transition-old(riri-avatar),::view-transition-new(riri-avatar) {
-    animation-duration: .3s;
-  }
-  ::view-transition-group(navbar),::view-transition-old(navbar),::view-transition-new(navbar) {
-    animation-duration: .3s;
-  }
-    </style>

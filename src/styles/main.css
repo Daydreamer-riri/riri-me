@@ -101,6 +101,11 @@ html.dark {
   }
 }
 /** EndSection: */
+::view-transition-old(*),
+::view-transition-new(*),
+::view-transition-group(*) {
+  animation-duration: .4s;
+}
 
 .theme-clip * {
   view-transition-name: none !important;
@@ -124,8 +129,3 @@ html.dark {
   z-index: 9999;
 }
 
-::view-transition-group(page-title),
-::view-transition-old(page-title),
-::view-transition-new(page-title) {
-  animation-duration: .3s;
-}
