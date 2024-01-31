@@ -76,9 +76,20 @@ const fallbackImageURL = new URL(SITE.ogImg, Astro.url.origin).href
     </body>
   </html>
   <script>
-  import { initMediumZoom } from '@modules/mediumZoom'
+import { initMediumZoom } from '@modules/mediumZoom'
+import NProgress from 'nprogress'
 
-  document.addEventListener('astro:page-load', () => {
-    initMediumZoom()
-  })
+// NProgress.configure({ template: '<div class="bar" id="nprogress" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>' })
+
+document.addEventListener('astro:before-preparation', () => {
+  NProgress.start()
+})
+
+document.addEventListener('astro:after-swap', () => {
+  NProgress.done()
+})
+
+document.addEventListener('astro:page-load', () => {
+  initMediumZoom()
+})
   </script>

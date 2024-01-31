@@ -133,3 +133,7 @@ html.dark {
   mix-blend-mode: normal;
   animation: none;
 }
+
+#nprogress .bar {
+  --at-apply: bg-c-fg op-75;
+}
