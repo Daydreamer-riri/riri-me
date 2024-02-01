@@ -135,5 +135,5 @@ html.dark {
 }
 
 #nprogress .bar {
-  --at-apply: bg-c-fg op-75;
+  --at-apply: "bg-c-fg op-75 view-transition-nprogress sm:h-1 md:h-2px";
 }
