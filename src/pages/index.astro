@@ -1,10 +1,20 @@
 ---
 import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 import Layout from '@layouts/layout.astro'
 import Default from '@layouts/default.astro'
 import avatar from '@assets/avatar.jpg'
 import InsCard from '@components/InsCard/index.astro'
 import * as Home from '../content/page/home.md'
+import { formatDate } from '../utils/posts'
+
+const nows
+  = await getCollection('now', ({ id }) => {
+    return id.startsWith('en')
+  })
+
+const now = nows[0]
+
 ---
 
   <Layout>
@@ -19,6 +29,13 @@ import * as Home from '../content/page/home.md'
         <article slide-enter animate-delay-200>
           <Home.Content />
         </article>
+        <div class="w-50px my-8 mx-auto border-t border-c-border slide-enter animate-delay-200"></div>
+        <h3 slide-enter animate-delay-200 transition:name="now__title" w-fit>What am I doing now?</h3>
+        <p slide-enter animate-delay-200>
+          <time text-sm op-60>{formatDate(now.data.pubDatetime)}</time>
+          <br />
+          {now.data.description} <br /> <span float-right> - <a href="/now" class="text-c-primary">Read more</a></span>
+        </p>
         <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
         <InsCard />
       </div>

@@ -15,3 +15,11 @@ export const blogSchema = z
   .strict()
 
 export type BlogFrontmatter = z.infer<typeof blogSchema>
+
+export const nowSchema = z
+  .object({
+    description: z.string(),
+    pubDatetime: z.date().or(z.string()),
+  })
+
+export type NowFrontmatter = z.infer<typeof nowSchema>

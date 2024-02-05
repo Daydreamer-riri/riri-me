@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content'
+import LinkButton from '../../components/LinkButton.astro'
+import Default from '../../layouts/default.astro'
+import Layout from '../../layouts/layout.astro'
+
+const nows
+  = await getCollection('now', ({ id }) => {
+    return id.startsWith('en')
+  })
+
+const desc = nows[0].data.description
+const { Content } = await nows[0].render()
+
+const title = 'What I\'m doing now'
+
+---
+  <Layout title={`${title} | Riri`} description={desc}>
+    <Default>
+      <div class="prose m-auto mb-space">
+        <h1 transition:name="now__title" class="w-fit post-detail-title">{title}</h1>
+      </div>
+
+      <article class="prose post m-auto slide-enter animate-delay-200!">
+        <Content />
+      </article>
+      <div class="prose m-auto my-8 slide-enter animate-delay-400!">
+        <span font-mono op-50>{'> '}</span>
+        <LinkButton href="/" className="op-50 font-mono hover:op-75">cd ..</LinkButton>
+      </div>
+    </Default>
+  </Layout>
