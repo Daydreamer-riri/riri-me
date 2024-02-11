@@ -96,7 +96,7 @@ export default defineConfig({
     presetUno(),
     presetWebFonts({
       fonts: {
-        sans: ['IBM Plex Sans:400,600,700', 'Noto Sans SC:400,700'],
+        sans: ['IBM Plex Sans:400,600,700'],
         mono: 'IBM Plex Mono:500,700',
       },
       extendTheme: false,
