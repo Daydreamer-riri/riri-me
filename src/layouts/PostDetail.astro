@@ -22,7 +22,7 @@ const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
     <Default>
       <div class="prose m-auto mb-space">
         <h1 transition:name={`${post.slug}__title`} class="w-fit post-detail-title">{title}</h1>
-        <p transition:name={`${post.slug}__time`} class="op-50 w-fit post-detail-time">
+        <p transition:name={`${post.slug}__time`} class="op-50 w-fit post-detail-time whitespace-nowrap text-nowrap">
           {formatDate(pubDatetime)} · {getReadingTime(post.body)}
         </p>
       </div>
