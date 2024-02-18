@@ -62,7 +62,7 @@ const yearToPostMap = getYearToPostMap(posts)
                         {data.title}
                       </span>
                       <time
-                        class="text-sm block w-fit op-30 transition-opacity transition-duration-200"
+                        class="text-sm block w-fit op-30 transition-opacity transition-duration-200 whitespace-nowrap text-nowrap"
                         datetime={dayjs(data.pubDatetime).toISOString()}
                         transition:name={`${slug}__time`}
                       >
