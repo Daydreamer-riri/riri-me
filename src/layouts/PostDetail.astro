@@ -41,14 +41,3 @@ const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
       </div>
     </Default>
   </Layout>
-    <!-- <script is:inline>
-    document.addEventListener('astro:before-preparation', () => {
-      const title = document.querySelector('.post-detail-title')
-      const time = document.querySelector('.post-detail-time')
-      const isTitleInViewport = title.getBoundingClientRect().top < window.innerHeight && title.getBoundingClientRect().bottom > 0
-      if (isTitleInViewport)
-        return
-      title.style['view-transition-name'] = 'none'
-      time.style['view-transition-name'] = 'none'
-    }, { once: true })
-    </script> -->
