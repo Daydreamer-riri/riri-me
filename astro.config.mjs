@@ -43,7 +43,7 @@ export default defineConfig({
     shikiConfig: {
       wrap: true,
       theme: 'vitesse-light',
-      experimentalThemes: {
+      themes: {
         light: 'vitesse-light',
         dark: 'vitesse-dark',
       },
