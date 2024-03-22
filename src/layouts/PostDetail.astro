@@ -18,26 +18,31 @@ const { Content } = await post.render()
 const ogUrl = new URL(ogImage || `${title}.svg`, Astro.url.origin).href
 ---
 
-  <Layout title={title} author={author} description={description} ogImage={ogUrl}>
-    <Default>
-      <div class="prose m-auto mb-space">
-        <h1 transition:name={`${post.slug}__title`} class="w-fit post-detail-title">{title}</h1>
-        <p transition:name={`${post.slug}__time`} class="op-50 w-fit post-detail-time whitespace-nowrap text-nowrap">
-          {formatDate(pubDatetime)} · {getReadingTime(post.body)}
-        </p>
-      </div>
+<Layout title={title} author={author} description={description} ogImage={ogUrl}>
+  <Default>
+    <div class="prose m-auto mb-space">
+      <h1
+        transition:name={`${post.slug}__title`}
+        class="w-fit post-detail-title"
+      >
+        {title}
+      </h1>
+      <p
+        transition:name={`${post.slug}__time`}
+        class="op-50 w-fit post-detail-time whitespace-nowrap text-nowrap"
+      >
+        {formatDate(pubDatetime)} · {getReadingTime(post.body)}
+      </p>
+    </div>
 
-      <article class="prose post m-auto slide-enter animate-delay-200!">
-        <Content />
-      </article>
-      <div class="prose m-auto my-8 slide-enter animate-delay-400!">
-        <span font-mono op-50>{'> '}</span>
-        <LinkButton
-          href="/posts"
-          className="op-50 font-mono hover:op-75"
-        >
-          cd ..
-        </LinkButton>
-      </div>
-    </Default>
-  </Layout>
+    <article class="prose post m-auto slide-enter animate-delay-200!">
+      <Content />
+    </article>
+    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
+      <span font-mono op-50>{'> '}</span>
+      <LinkButton href="/posts" className="op-50 font-mono hover:op-75">
+        cd ..
+      </LinkButton>
+    </div>
+  </Default>
+</Layout>

@@ -16,19 +16,17 @@ const { posts } = Astro.props
 const yearToPostMap = getYearToPostMap(posts)
 ---
 
-  <Layout title={`posts | ${title}`}>
-    <Main pageTitle="Blog">
-      <ul>
-        {
-        !posts.length
-          ? (
-            <div text-center op-80>
-              nothing here yet
-            </div>
-            )
-          : null
+<Layout title={`posts | ${title}`}>
+  <Main pageTitle="Blog">
+    <ul>
+      {
+        !posts.length ? (
+          <div text-center op-80>
+            nothing here yet
+          </div>
+        ) : null
       }
-        {
+      {
         Object.keys(yearToPostMap)
           .reverse()
           .map((year, index) => (
@@ -53,7 +51,12 @@ const yearToPostMap = getYearToPostMap(posts)
                   >
                     <li class="mb-2!">
                       {/-zh.mdx?$/i.test(id) && (
-                        <span align-middle class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2 op-60 transition-opacity transition-duration-200">中文</span>
+                        <span
+                          align-middle
+                          class="text-xs border border-current rounded px-1 pb-0.2 sm:ml--10.5 mr2 op-60 transition-opacity transition-duration-200"
+                        >
+                          中文
+                        </span>
                       )}
                       <span
                         class="text-lg leading-1.2rem op-60 transition-opacity transition-duration-200 text-balance"
@@ -75,21 +78,18 @@ const yearToPostMap = getYearToPostMap(posts)
             </Fragment>
           ))
       }
-      </ul>
-      <div class="prose m-auto my-8 slide-enter animate-delay-400!">
-        <br />
-        <span font-mono op-50>{'> '}</span>
-        <LinkButton
-          href="/"
-          className="op-50 font-mono hover:op-75"
-        >
-          cd ..
-        </LinkButton>
-      </div>
-    </Main>
-  </Layout>
+    </ul>
+    <div class="prose m-auto my-8 slide-enter animate-delay-400!">
+      <br />
+      <span font-mono op-50>{'> '}</span>
+      <LinkButton href="/" className="op-50 font-mono hover:op-75">
+        cd ..
+      </LinkButton>
+    </div>
+  </Main>
+</Layout>
 
-    <style>
+<style>
   a.item:hover span {
     opacity: 1;
   }
@@ -97,4 +97,4 @@ const yearToPostMap = getYearToPostMap(posts)
   a.item:hover time {
     opacity: 0.6;
   }
-    </style>
+</style>

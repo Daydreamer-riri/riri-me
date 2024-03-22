@@ -138,7 +138,7 @@
 
 /* NOTE: link-card */
 .prose figure[link] a {
-  --at-apply: "border bg-gray bg-op-5 border-c-border rd overflow-hidden block hover:op-80 transition-all";
+  --at-apply: 'border bg-gray bg-op-5 border-c-border rd overflow-hidden block hover:op-80 transition-all';
 }
 
 .prose figure[link] a img {
@@ -160,7 +160,7 @@
 .prose a:not(.no-prose) {
   --at-apply: text-c-fgDeeper font-500 decoration-none;
   --at-apply: border-b transition-border-color-300;
-  --at-apply: border-c-border hover:border-c-fg focus:border-c-fg;
+  --at-apply: border-c-border hover: border-c-fg focus: border-c-fg;
 }
 
 /** EndSection: */
@@ -405,8 +405,8 @@ html:not(.dark) .shiki-dark {
 }
 
 .toc {
-  --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0
-    op-60 transition-all-400;
+  --at-apply: w-239px text-sm leading-1.6em fixed top-120px bottom-0 op-60
+    transition-all-400;
   right: calc(-256px - 15%);
 }
 
@@ -421,8 +421,8 @@ html:not(.dark) .shiki-dark {
 
 .toc a.toc-link {
   --at-apply: border-none transition-colors-200 text-0.8rem truncate;
-  --at-apply: "text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60";
-  --at-apply: "hover:text-c-fgDeeper focus:text-c-fgDeeper";
+  --at-apply: 'text-gray-700 text-op-60 dark:text-gray-200 dark:text-op-60';
+  --at-apply: 'hover:text-c-fgDeeper focus:text-c-fgDeeper';
 }
 
 .toc ol > li::before {
@@ -474,7 +474,11 @@ h6:focus .header-anchor {
 
 /** EndSection: */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   --at-apply: text-balance;
 }
-

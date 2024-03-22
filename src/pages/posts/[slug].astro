@@ -9,9 +9,11 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => import.meta.env.DEV ? true : !data.draft)
+  const posts = await getCollection('blog', ({ data }) =>
+    import.meta.env.DEV ? true : !data.draft,
+  )
 
-  const postResult = posts.map(post => ({
+  const postResult = posts.map((post) => ({
     params: { slug: slugify(post.data) },
     props: { post },
   }))
@@ -22,4 +24,4 @@ export async function getStaticPaths() {
 const { post } = Astro.props
 ---
 
-  <PostDetail post={post} />
+<PostDetail post={post} />

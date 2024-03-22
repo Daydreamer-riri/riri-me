@@ -8,36 +8,49 @@ import InsCard from '@components/InsCard/index.astro'
 import * as Home from '../content/page/home.md'
 import { formatDate } from '../utils/posts'
 
-const nows
-  = await getCollection('now', ({ id }) => {
-    return id.startsWith('en')
-  })
+const nows = await getCollection('now', ({ id }) => {
+  return id.startsWith('en')
+})
 
 const now = nows[0]
-
 ---
 
-  <Layout>
-    <Default>
-      <div class="prose m-auto">
-        <h1 class="flex flex-items-center">
-          <Image widths={[80, 120]} class="avatar block mt-0! mb-0! w-2.5rem h-2.5rem rd-2.5rem mr-3 pointer-events-none" src={avatar} alt="avatar" transition:name="riri-avatar" />
-          <span transition:name="page-title" class="inline-block w-40">
-            Riri
-          </span>
-        </h1>
-        <article slide-enter animate-delay-200>
-          <Home.Content />
-        </article>
-        <div class="w-50px my-8 mx-auto border-t border-c-border slide-enter animate-delay-200"></div>
-        <h3 slide-enter animate-delay-200 transition:name="now__title" w-fit>What am I doing now?</h3>
-        <p slide-enter animate-delay-200>
-          <time text-sm op-60>{formatDate(now.data.pubDatetime)}</time>
-          <br />
-          {now.data.description} <br /> <span float-right> - <a href="/now" class="text-c-primary">Read more</a></span>
-        </p>
-        <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
-        <InsCard />
+<Layout>
+  <Default>
+    <div class="prose m-auto">
+      <h1 class="flex flex-items-center">
+        <Image
+          widths={[80, 120]}
+          class="avatar block mt-0! mb-0! w-2.5rem h-2.5rem rd-2.5rem mr-3 pointer-events-none"
+          src={avatar}
+          alt="avatar"
+          transition:name="riri-avatar"
+        />
+        <span transition:name="page-title" class="inline-block w-40">
+          Riri
+        </span>
+      </h1>
+      <article slide-enter animate-delay-200>
+        <Home.Content />
+      </article>
+      <div
+        class="w-50px my-8 mx-auto border-t border-c-border slide-enter animate-delay-200"
+      >
       </div>
-    </Default>
-  </Layout>
+      <h3 slide-enter animate-delay-200 transition:name="now__title" w-fit>
+        What am I doing now?
+      </h3>
+      <p slide-enter animate-delay-200>
+        <time text-sm op-60>{formatDate(now.data.pubDatetime)}</time>
+        <br />
+        {now.data.description}
+        <br />
+        <span float-right>
+          - <a href="/now" class="text-c-primary">Read more</a>
+        </span>
+      </p>
+      <div class="w-50px my-8 mx-auto border-t border-c-border"></div>
+      <InsCard />
+    </div>
+  </Default>
+</Layout>
