@@ -26,6 +26,14 @@ const projects: Projects = {
         link: 'https://github.com/Daydreamer-riri/vite-react-ssg',
       },
     ],
+    'Powertoys-Run Plugin': [
+      {
+        name: 'WebSearchShortcut',
+        desc: 'A simple PowerToys Run plugin for quickly select a specific search engine to perform searches.',
+        iconClass: 'i-fluent-slide-search-28-regular',
+        link: 'https://github.com/Daydreamer-riri/PowerToys-Run-WebSearchShortcut',
+      },
+    ],
     'CSS': [
       {
         name: 'material3-style',

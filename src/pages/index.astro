@@ -12,7 +12,7 @@ const nows = await getCollection('now', ({ id }) => {
   return id.startsWith('en')
 })
 
-const now = nows[0]
+const now = nows[nows.length - 1]
 ---
 
 <Layout>

@@ -9,7 +9,7 @@ const nows = await getCollection('now', ({ id }) => {
 })
 
 const desc = nows[0].data.description
-const { Content } = await nows[0].render()
+const { Content } = await nows[nows.length - 1].render()
 
 const title = "What I'm doing now"
 ---
