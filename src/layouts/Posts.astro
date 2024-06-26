@@ -20,11 +20,13 @@ const yearToPostMap = getYearToPostMap(posts)
   <Main pageTitle="Blog">
     <ul>
       {
-        !posts.length ? (
-          <div text-center op-80>
-            nothing here yet
-          </div>
-        ) : null
+        !posts.length
+          ? (
+              <div text-center op-80>
+                nothing here yet
+              </div>
+            )
+          : null
       }
       {
         Object.keys(yearToPostMap)

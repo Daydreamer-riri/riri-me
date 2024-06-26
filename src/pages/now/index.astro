@@ -11,7 +11,7 @@ const nows = await getCollection('now', ({ id }) => {
 const desc = nows[0].data.description
 const { Content } = await nows[nows.length - 1].render()
 
-const title = "What I'm doing now"
+const title = 'What I\'m doing now'
 ---
 
 <Layout title={`${title} | Riri`} description={desc}>
@@ -27,8 +27,10 @@ const title = "What I'm doing now"
     </article>
     <div class="prose m-auto my-8 slide-enter animate-delay-400!">
       <span font-mono op-50>{'> '}</span>
-      <LinkButton href="/" className="op-50 font-mono hover:op-75"
-        >cd ..
+      <LinkButton
+        href="/"
+        className="op-50 font-mono hover:op-75"
+      >cd ..
       </LinkButton>
     </div>
   </Default>

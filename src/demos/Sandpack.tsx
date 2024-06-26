@@ -9,6 +9,8 @@ import {
 } from '@codesandbox/sandpack-react/unstyled'
 
 export function Sandpack(props: SandpackProps) {
+  const { options } = props
+
   return (
     <SandpackProvider
       className="lg:w-130%! lg:ml-[-15%]! max-w-screen! not-prose"
@@ -17,7 +19,7 @@ export function Sandpack(props: SandpackProps) {
         classes: {
           'sp-wrapper': 'sandpack-wrapper',
         },
-        ...props.options,
+        ...options,
       }}
     >
       <SandpackLayout>
