@@ -26,6 +26,14 @@ const projects: Projects = {
         link: 'https://github.com/Daydreamer-riri/vite-react-ssg',
       },
     ],
+    'React Ecosystem': [
+      {
+        name: 'transition-hooks',
+        desc: 'An extremely light-weight react transition animation hook which is simpler and easier to use than react-transition-group',
+        iconClass: 'i-mdi-transition-masked',
+        link: 'https://github.com/Daydreamer-riri/transition-hooks',
+      },
+    ],
     'Powertoys-Run Plugin': [
       {
         name: 'WebSearchShortcut',
