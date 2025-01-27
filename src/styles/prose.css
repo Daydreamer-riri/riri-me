@@ -96,6 +96,10 @@
 /** EndSection: */
 
 /** Section: Image */
+.prose img {
+  border-radius: 8px;
+}
+
 .prose img,
 .prose video,
 .prose figure {
